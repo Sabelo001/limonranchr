@@ -86,12 +86,20 @@ function Home() {
   useReveal();
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
     if (theme === "light") root.classList.add("light");
     else root.classList.remove("light");
   }, [theme]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const nav = [
     { label: "About", href: "#about" },
