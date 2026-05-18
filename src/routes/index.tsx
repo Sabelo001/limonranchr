@@ -12,6 +12,7 @@ import {
   Quote,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
+import logoLight from "@/assets/logo-light.png";
 import hero from "@/assets/hero.jpg";
 import wildlife from "@/assets/wildlife.jpg";
 import giraffes from "@/assets/giraffes.jpg";
