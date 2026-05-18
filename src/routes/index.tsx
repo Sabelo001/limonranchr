@@ -287,7 +287,7 @@ function Home() {
             <span className="gold-rule mt-6" />
           </div>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-6 md:gap-8">
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
               {
                 title: "Safari & Wildlife",
@@ -304,10 +304,17 @@ function Home() {
                 cta: "Ranch Stay",
               },
               {
-                title: "Events & Conferences",
-                img: events,
+                title: "Restaurant & Bar",
+                img: foodPlatter,
                 copy:
-                  "Weddings, retreats and gatherings hosted in elegant indoor halls and open-air settings.",
+                  "From sizzling nyama choma platters to handcrafted milkshakes — a kitchen and bar built around long, golden meals.",
+                cta: "Restaurant & Bar",
+              },
+              {
+                title: "Events & Conferences",
+                img: eventsHall,
+                copy:
+                  "Weddings, birthdays, retreats and conferences hosted in elegant halls and open-air settings.",
                 cta: "Events & Conferences",
               },
             ].map((card, i) => (
