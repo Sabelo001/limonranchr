@@ -27,6 +27,9 @@ import cottageGarden from "@/assets/cottage-garden.jpg";
 import bar from "@/assets/bar.jpg";
 import warriors from "@/assets/samburu-warriors.avif";
 import elephants from "@/assets/samburu-elephants.avif";
+import campingGround from "@/assets/camping-ground.jpg";
+import playground from "@/assets/playground.jpg";
+import lounge from "@/assets/lounge.jpg";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
@@ -378,6 +381,9 @@ function Home() {
             <GalleryItem src={ololokwe} alt="Mount Ololokwe rising over the Samburu plains" className="col-span-2 row-span-2" />
             <GalleryItem src={warriors} alt="Samburu warriors at dusk" />
             <GalleryItem src={reteti} alt="Elephants at Reteti sanctuary" />
+            <GalleryItem src={campingGround} alt="Open camping ground and lawns" className="col-span-2" />
+            <GalleryItem src={playground} alt="Playground in the gardens" />
+            <GalleryItem src={lounge} alt="Lounge and bar" />
             <GalleryItem src={giraffes} alt="Giraffes at sunset" className="col-span-2" />
             <GalleryItem src={cottageGarden} alt="Private cottage surrounded by gardens" />
             <GalleryItem src={room2} alt="Suite interior with four-poster bed" />
