@@ -264,7 +264,7 @@ function Home() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="py-24 md:py-36 px-6 md:px-10">
+      <section id="about" className="py-28 md:py-44 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="reveal order-2 md:order-1">
             <p className="eyebrow">Our Story</p>
@@ -302,7 +302,7 @@ function Home() {
       </section>
 
       {/* EXPERIENCES */}
-      <section id="experiences" className="py-24 md:py-36 px-6 md:px-10 bg-card/40 border-y border-border/40">
+      <section id="experiences" className="py-28 md:py-44 px-6 md:px-10 bg-card/40 border-y border-border/40">
         <div className="max-w-7xl mx-auto">
           <div className="reveal text-center max-w-2xl mx-auto">
             <p className="eyebrow">Experiences</p>
@@ -408,7 +408,7 @@ function Home() {
       </section>
 
       {/* RESTAURANT FEATURE */}
-      <section className="py-24 md:py-36 px-6 md:px-10">
+      <section className="py-28 md:py-44 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="reveal relative">
             <div className="absolute -inset-4 border border-gold/30 -z-10" />
@@ -450,7 +450,7 @@ function Home() {
       </section>
 
       {/* GALLERY */}
-      <section id="gallery" className="py-24 md:py-36 px-6 md:px-10 bg-card/40 border-y border-border/40">
+      <section id="gallery" className="py-28 md:py-44 px-6 md:px-10 bg-card/40 border-y border-border/40">
         <div className="max-w-7xl mx-auto">
           <div className="reveal text-center max-w-2xl mx-auto">
             <p className="eyebrow">Gallery</p>
@@ -491,7 +491,7 @@ function Home() {
       {/* TESTIMONIALS */}
       <section
         id="testimonials"
-        className="py-24 md:py-36 px-6 md:px-10 bg-card/40 border-y border-border/40"
+        className="py-28 md:py-44 px-6 md:px-10 bg-card/40 border-y border-border/40"
       >
         <div className="max-w-6xl mx-auto">
           <div className="reveal text-center max-w-2xl mx-auto">
@@ -537,7 +537,7 @@ function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-24 md:py-36 px-6 md:px-10">
+      <section id="contact" className="py-28 md:py-44 px-6 md:px-10">
         <div className="max-w-5xl mx-auto text-center reveal">
           <p className="eyebrow">Plan your visit</p>
           <h2 className="mt-5 font-display text-3xl md:text-6xl leading-tight text-balance">
