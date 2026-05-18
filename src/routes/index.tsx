@@ -21,6 +21,12 @@ import room2 from "@/assets/room-2.jpg";
 import patio from "@/assets/patio.jpg";
 import events from "@/assets/events.jpg";
 import conference from "@/assets/conference.jpg";
+import ololokwe from "@/assets/ololokwe.jpg";
+import reteti from "@/assets/reteti.jpg";
+import cottageGarden from "@/assets/cottage-garden.jpg";
+import bar from "@/assets/bar.jpg";
+import warriors from "@/assets/samburu-warriors.avif";
+import elephants from "@/assets/samburu-elephants.avif";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
