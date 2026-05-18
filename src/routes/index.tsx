@@ -30,6 +30,15 @@ import elephants from "@/assets/samburu-elephants.avif";
 import campingGround from "@/assets/camping-ground.jpg";
 import playground from "@/assets/playground.jpg";
 import lounge from "@/assets/lounge.jpg";
+import conferenceExterior from "@/assets/conference-exterior.jpg";
+import gamesLounge from "@/assets/games-lounge.jpg";
+import foodPlatter from "@/assets/food-platter.jpg";
+import eventsHall from "@/assets/events-hall.jpg";
+import eventsHall2 from "@/assets/events-hall-2.jpg";
+import buffet from "@/assets/buffet.jpg";
+import milkshake from "@/assets/milkshake.jpg";
+import chickenFries from "@/assets/chicken-fries.jpg";
+import chickenCurry from "@/assets/chicken-curry.jpg";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
