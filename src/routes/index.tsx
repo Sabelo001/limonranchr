@@ -12,6 +12,7 @@ import {
   Quote,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
+import logoLight from "@/assets/logo-light.png";
 import hero from "@/assets/hero.jpg";
 import wildlife from "@/assets/wildlife.jpg";
 import giraffes from "@/assets/giraffes.jpg";
@@ -85,12 +86,20 @@ function Home() {
   useReveal();
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
     if (theme === "light") root.classList.add("light");
     else root.classList.remove("light");
   }, [theme]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const nav = [
     { label: "About", href: "#about" },
@@ -103,10 +112,16 @@ function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/60 border-b border-border/40">
+      <header
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "backdrop-blur-md bg-background/85 border-b border-border/40"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3">
-            <img src={logo} alt="Limon Ranch" className="h-9 md:h-11 w-auto" />
+            <img src={logoLight} alt="Limon Ranch" className="h-9 md:h-11 w-auto" />
             <span className="hidden sm:block font-display text-lg tracking-wide">
               Limon Ranch
             </span>
@@ -140,7 +155,7 @@ function Home() {
               href={wa("Hello Limon Ranch, I'd like to make a booking.")}
               target="_blank"
               rel="noreferrer"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-xs tracking-[0.2em] uppercase border border-gold/70 text-gold hover:bg-gold hover:text-primary-foreground transition-all"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs tracking-[0.2em] uppercase border border-gold/70 text-gold hover:bg-gold hover:text-primary-foreground transition-all"
             >
               Reserve
             </a>
@@ -171,7 +186,7 @@ function Home() {
                 href={wa("Hello Limon Ranch, I'd like to make a booking.")}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 text-xs tracking-[0.2em] uppercase border border-gold/70 text-gold"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-xs tracking-[0.2em] uppercase border border-gold/70 text-gold"
               >
                 Reserve via WhatsApp
               </a>
@@ -189,24 +204,34 @@ function Home() {
           width={1920}
           height={1280}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.6)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <div className="reveal">
             <img
-              src={logo}
+              src={logoLight}
               alt="Limon Ranch"
-              className="mx-auto h-28 md:h-44 w-auto drop-shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+              className="mx-auto h-28 md:h-44 w-auto"
             />
           </div>
 
           <div className="reveal mt-8 max-w-3xl" style={{ transitionDelay: "120ms" }}>
-            <p className="eyebrow text-[#C9A84C]">Samburu County · Northern Kenya</p>
-            <h1 className="mt-5 font-display text-4xl sm:text-5xl md:text-7xl text-white leading-[1.05] text-balance">
-              The Pride <span className="italic text-[#C9A84C]">of the North</span>
+            <p
+              className="text-[#C9A84C] uppercase font-medium"
+              style={{ fontSize: "0.7rem", letterSpacing: "0.28em" }}
+            >
+              Samburu County · Northern Kenya
+            </p>
+            <h1
+              className="mt-5 font-display text-white text-balance text-4xl sm:text-5xl md:text-6xl"
+              style={{ letterSpacing: "-0.02em", lineHeight: 1.05, fontWeight: 500 }}
+            >
+              The Pride <em className="not-italic md:italic text-[#C9A84C] font-medium">of the North</em>
             </h1>
-            <p className="mt-6 text-white/75 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+            <p
+              className="mt-6 mx-auto max-w-xl text-white/80"
+              style={{ fontSize: "18px", lineHeight: 1.8 }}
+            >
               A luxury safari, ranch stay and events sanctuary where wild Africa
               meets refined hospitality.
             </p>
@@ -220,13 +245,13 @@ function Home() {
               href={wa("Hello Limon Ranch, I'd like to book a stay.")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C9A84C] text-black text-xs tracking-[0.25em] uppercase font-medium hover:bg-[#d8b962] transition-colors"
+              className="inline-flex h-12 items-center justify-center gap-2 px-6 rounded-lg bg-[#C9A84C] text-black text-xs tracking-[0.22em] uppercase font-medium hover:bg-[#d8b962] transition-colors"
             >
               <MessageCircle className="h-4 w-4" /> Book via WhatsApp
             </a>
             <a
               href="#experiences"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white text-xs tracking-[0.25em] uppercase font-medium hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
+              className="inline-flex h-12 items-center justify-center gap-2 px-7 rounded-lg border border-white/40 text-white text-xs tracking-[0.22em] uppercase font-medium hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
             >
               Explore Experiences
             </a>
@@ -239,7 +264,7 @@ function Home() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="py-24 md:py-36 px-6 md:px-10">
+      <section id="about" className="py-28 md:py-44 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="reveal order-2 md:order-1">
             <p className="eyebrow">Our Story</p>
@@ -277,7 +302,7 @@ function Home() {
       </section>
 
       {/* EXPERIENCES */}
-      <section id="experiences" className="py-24 md:py-36 px-6 md:px-10 bg-card/40 border-y border-border/40">
+      <section id="experiences" className="py-28 md:py-44 px-6 md:px-10 bg-card/40 border-y border-border/40">
         <div className="max-w-7xl mx-auto">
           <div className="reveal text-center max-w-2xl mx-auto">
             <p className="eyebrow">Experiences</p>
@@ -363,7 +388,7 @@ function Home() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/15 to-black/65" />
         <div className="relative z-10 h-full flex items-end">
           <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pb-16 md:pb-24">
             <div className="reveal max-w-2xl text-white">
@@ -383,7 +408,7 @@ function Home() {
       </section>
 
       {/* RESTAURANT FEATURE */}
-      <section className="py-24 md:py-36 px-6 md:px-10">
+      <section className="py-28 md:py-44 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="reveal relative">
             <div className="absolute -inset-4 border border-gold/30 -z-10" />
@@ -425,7 +450,7 @@ function Home() {
       </section>
 
       {/* GALLERY */}
-      <section id="gallery" className="py-24 md:py-36 px-6 md:px-10 bg-card/40 border-y border-border/40">
+      <section id="gallery" className="py-28 md:py-44 px-6 md:px-10 bg-card/40 border-y border-border/40">
         <div className="max-w-7xl mx-auto">
           <div className="reveal text-center max-w-2xl mx-auto">
             <p className="eyebrow">Gallery</p>
@@ -466,7 +491,7 @@ function Home() {
       {/* TESTIMONIALS */}
       <section
         id="testimonials"
-        className="py-24 md:py-36 px-6 md:px-10 bg-card/40 border-y border-border/40"
+        className="py-28 md:py-44 px-6 md:px-10 bg-card/40 border-y border-border/40"
       >
         <div className="max-w-6xl mx-auto">
           <div className="reveal text-center max-w-2xl mx-auto">
@@ -512,10 +537,10 @@ function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-24 md:py-36 px-6 md:px-10">
+      <section id="contact" className="py-28 md:py-44 px-6 md:px-10">
         <div className="max-w-5xl mx-auto text-center reveal">
           <p className="eyebrow">Plan your visit</p>
-          <h2 className="mt-5 font-display text-3xl md:text-6xl leading-tight text-balance">
+          <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight text-balance">
             Begin your Samburu story.
           </h2>
           <span className="gold-rule mt-6" />
@@ -529,13 +554,13 @@ function Home() {
               href={wa("Hello Limon Ranch, I'd like to plan a visit.")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-gold text-primary-foreground text-xs tracking-[0.25em] uppercase font-medium hover:opacity-90 transition-opacity"
+              className="inline-flex h-12 items-center justify-center gap-2 px-6 rounded-lg bg-gold text-primary-foreground text-xs tracking-[0.22em] uppercase font-medium hover:opacity-90 transition-opacity"
             >
               <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
             </a>
             <a
               href="tel:+254722207384"
-              className="inline-flex items-center justify-center gap-2 px-9 py-4 border border-border text-foreground text-xs tracking-[0.25em] uppercase font-medium hover:border-gold hover:text-gold transition-colors"
+              className="inline-flex h-12 items-center justify-center gap-2 px-7 rounded-lg border border-border text-foreground text-xs tracking-[0.22em] uppercase font-medium hover:border-gold hover:text-gold transition-colors"
             >
               +254 722 207 384
             </a>
@@ -565,7 +590,7 @@ function Home() {
       <footer className="border-t border-border/40 px-6 md:px-10 py-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-0 justify-between">
           <div className="flex flex-col items-center md:items-start gap-3">
-            <img src={logo} alt="Limon Ranch" className="h-12 w-auto" />
+            <img src={logoLight} alt="Limon Ranch" className="h-12 w-auto" />
             <p className="text-xs tracking-[0.3em] uppercase text-gold">
               The Pride of the North
             </p>
