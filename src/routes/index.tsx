@@ -382,8 +382,50 @@ function Home() {
         </div>
       </section>
 
+      {/* RESTAURANT FEATURE */}
+      <section className="py-24 md:py-36 px-6 md:px-10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div className="reveal relative">
+            <div className="absolute -inset-4 border border-gold/30 -z-10" />
+            <img
+              src={foodPlatter}
+              alt="Signature Limon Ranch nyama choma platter"
+              loading="lazy"
+              className="w-full h-[420px] md:h-[560px] object-cover"
+            />
+          </div>
+          <div className="reveal" style={{ transitionDelay: "120ms" }}>
+            <p className="eyebrow">The Restaurant</p>
+            <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight text-balance">
+              A kitchen built for long, golden meals.
+            </h2>
+            <span className="gold-rule mt-6" />
+            <div className="mt-8 space-y-5 text-foreground/75 leading-relaxed">
+              <p>
+                From sizzling nyama choma platters and slow-simmered curries to
+                crisp salads in the sun and handcrafted milkshakes by the fire —
+                our restaurant celebrates the flavours of the north with quiet
+                confidence.
+              </p>
+              <p>
+                Pair every meal with a thoughtful bar list, then linger over a
+                game of pool in the lounge as the day slips into Samburu dusk.
+              </p>
+            </div>
+            <a
+              href={wa("Hello Limon Ranch, I'd like to book a table at the restaurant.")}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-gold border-b border-gold/40 pb-1 hover:border-gold transition-colors"
+            >
+              <MessageCircle className="h-3.5 w-3.5" /> Reserve a Table
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* GALLERY */}
-      <section id="gallery" className="py-24 md:py-36 px-6 md:px-10">
+      <section id="gallery" className="py-24 md:py-36 px-6 md:px-10 bg-card/40 border-y border-border/40">
         <div className="max-w-7xl mx-auto">
           <div className="reveal text-center max-w-2xl mx-auto">
             <p className="eyebrow">Gallery</p>
@@ -400,16 +442,23 @@ function Home() {
             <GalleryItem src={campingGround} alt="Open camping ground and lawns" className="col-span-2" />
             <GalleryItem src={playground} alt="Playground in the gardens" />
             <GalleryItem src={lounge} alt="Lounge and bar" />
+            <GalleryItem src={chickenCurry} alt="Slow-simmered chicken curry" className="col-span-2" />
+            <GalleryItem src={chickenFries} alt="Crispy chicken and fries in the sun" />
+            <GalleryItem src={milkshake} alt="Handcrafted chocolate milkshake" />
             <GalleryItem src={giraffes} alt="Giraffes at sunset" className="col-span-2" />
             <GalleryItem src={cottageGarden} alt="Private cottage surrounded by gardens" />
             <GalleryItem src={room2} alt="Suite interior with four-poster bed" />
-            <GalleryItem src={patio} alt="Outdoor dining patio" className="col-span-2" />
+            <GalleryItem src={buffet} alt="Buffet service on the patio" className="col-span-2" />
             <GalleryItem src={bar} alt="The ranch bar" />
+            <GalleryItem src={gamesLounge} alt="Games lounge with pool table" />
+            <GalleryItem src={eventsHall2} alt="Events hall styled for a celebration" className="col-span-2" />
+            <GalleryItem src={patio} alt="Outdoor dining patio" />
             <GalleryItem src={wildlife} alt="Lioness at golden hour" />
             <GalleryItem src={cottages} alt="Cottages on the hill" className="col-span-2" />
             <GalleryItem src={events} alt="Events hall set for a celebration" />
             <GalleryItem src={room1} alt="Four-poster bedroom" />
-            <GalleryItem src={conference} alt="Conference centre" />
+            <GalleryItem src={conferenceExterior} alt="Conference centre exterior" className="col-span-2" />
+            <GalleryItem src={conference} alt="Conference centre interior" />
           </div>
         </div>
       </section>
