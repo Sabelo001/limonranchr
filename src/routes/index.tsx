@@ -27,6 +27,9 @@ import cottageGarden from "@/assets/cottage-garden.jpg";
 import bar from "@/assets/bar.jpg";
 import warriors from "@/assets/samburu-warriors.avif";
 import elephants from "@/assets/samburu-elephants.avif";
+import campingGround from "@/assets/camping-ground.jpg";
+import playground from "@/assets/playground.jpg";
+import lounge from "@/assets/lounge.jpg";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
