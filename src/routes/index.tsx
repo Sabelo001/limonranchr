@@ -112,10 +112,16 @@ function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/60 border-b border-border/40">
+      <header
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "backdrop-blur-md bg-background/85 border-b border-border/40"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3">
-            <img src={logo} alt="Limon Ranch" className="h-9 md:h-11 w-auto" />
+            <img src={logoLight} alt="Limon Ranch" className="h-9 md:h-11 w-auto" />
             <span className="hidden sm:block font-display text-lg tracking-wide">
               Limon Ranch
             </span>
