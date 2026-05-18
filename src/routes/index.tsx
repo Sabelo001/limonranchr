@@ -21,6 +21,12 @@ import room2 from "@/assets/room-2.jpg";
 import patio from "@/assets/patio.jpg";
 import events from "@/assets/events.jpg";
 import conference from "@/assets/conference.jpg";
+import ololokwe from "@/assets/ololokwe.jpg";
+import reteti from "@/assets/reteti.jpg";
+import cottageGarden from "@/assets/cottage-garden.jpg";
+import bar from "@/assets/bar.jpg";
+import warriors from "@/assets/samburu-warriors.avif";
+import elephants from "@/assets/samburu-elephants.avif";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
@@ -273,7 +279,7 @@ function Home() {
             {[
               {
                 title: "Safari & Wildlife",
-                img: wildlife,
+                img: elephants,
                 copy:
                   "Game drives, walking safaris and warrior-guided bush encounters across some of Kenya's wildest country.",
                 cta: "Safari & Wildlife",
@@ -330,6 +336,33 @@ function Home() {
         </div>
       </section>
 
+      {/* OLOLOKWE FEATURE */}
+      <section className="relative h-[70vh] min-h-[460px] w-full overflow-hidden">
+        <img
+          src={ololokwe}
+          alt="Mount Ololokwe — the sacred table mountain of the Samburu"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/80" />
+        <div className="relative z-10 h-full flex items-end">
+          <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pb-16 md:pb-24">
+            <div className="reveal max-w-2xl text-white">
+              <p className="eyebrow text-[#C9A84C]">Land of Legend</p>
+              <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight text-balance">
+                In the shadow of Ololokwe.
+              </h2>
+              <span className="gold-rule mt-6 bg-[#C9A84C]" />
+              <p className="mt-6 text-white/80 leading-relaxed">
+                The sacred table mountain of the Samburu watches over our land — a
+                landmark of the north, alongside the elephants of Reteti, the
+                singing wells, and a culture as old as the hills themselves.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* GALLERY */}
       <section id="gallery" className="py-24 md:py-36 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
@@ -342,13 +375,19 @@ function Home() {
           </div>
 
           <div className="reveal mt-14 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 [grid-auto-rows:160px] md:[grid-auto-rows:220px]">
-            <GalleryItem src={giraffes} alt="Giraffes at sunset" className="col-span-2 row-span-2" />
-            <GalleryItem src={room2} alt="Suite interior" />
-            <GalleryItem src={patio} alt="Outdoor dining patio" />
-            <GalleryItem src={conference} alt="Conference centre entrance" />
+            <GalleryItem src={ololokwe} alt="Mount Ololokwe rising over the Samburu plains" className="col-span-2 row-span-2" />
+            <GalleryItem src={warriors} alt="Samburu warriors at dusk" />
+            <GalleryItem src={reteti} alt="Elephants at Reteti sanctuary" />
+            <GalleryItem src={giraffes} alt="Giraffes at sunset" className="col-span-2" />
+            <GalleryItem src={cottageGarden} alt="Private cottage surrounded by gardens" />
+            <GalleryItem src={room2} alt="Suite interior with four-poster bed" />
+            <GalleryItem src={patio} alt="Outdoor dining patio" className="col-span-2" />
+            <GalleryItem src={bar} alt="The ranch bar" />
+            <GalleryItem src={wildlife} alt="Lioness at golden hour" />
             <GalleryItem src={cottages} alt="Cottages on the hill" className="col-span-2" />
-            <GalleryItem src={events} alt="Events hall" />
+            <GalleryItem src={events} alt="Events hall set for a celebration" />
             <GalleryItem src={room1} alt="Four-poster bedroom" />
+            <GalleryItem src={conference} alt="Conference centre" />
           </div>
         </div>
       </section>
