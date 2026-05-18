@@ -388,7 +388,7 @@ function Home() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/15 to-black/65" />
         <div className="relative z-10 h-full flex items-end">
           <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pb-16 md:pb-24">
             <div className="reveal max-w-2xl text-white">
@@ -540,7 +540,7 @@ function Home() {
       <section id="contact" className="py-28 md:py-44 px-6 md:px-10">
         <div className="max-w-5xl mx-auto text-center reveal">
           <p className="eyebrow">Plan your visit</p>
-          <h2 className="mt-5 font-display text-3xl md:text-6xl leading-tight text-balance">
+          <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight text-balance">
             Begin your Samburu story.
           </h2>
           <span className="gold-rule mt-6" />
