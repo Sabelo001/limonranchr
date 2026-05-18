@@ -204,24 +204,34 @@ function Home() {
           width={1920}
           height={1280}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.6)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <div className="reveal">
             <img
-              src={logo}
+              src={logoLight}
               alt="Limon Ranch"
-              className="mx-auto h-28 md:h-44 w-auto drop-shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+              className="mx-auto h-28 md:h-44 w-auto"
             />
           </div>
 
           <div className="reveal mt-8 max-w-3xl" style={{ transitionDelay: "120ms" }}>
-            <p className="eyebrow text-[#C9A84C]">Samburu County · Northern Kenya</p>
-            <h1 className="mt-5 font-display text-4xl sm:text-5xl md:text-7xl text-white leading-[1.05] text-balance">
-              The Pride <span className="italic text-[#C9A84C]">of the North</span>
+            <p
+              className="text-[#C9A84C] uppercase font-medium"
+              style={{ fontSize: "0.7rem", letterSpacing: "0.28em" }}
+            >
+              Samburu County · Northern Kenya
+            </p>
+            <h1
+              className="mt-5 font-display text-white text-balance text-4xl sm:text-5xl md:text-6xl"
+              style={{ letterSpacing: "-0.02em", lineHeight: 1.05, fontWeight: 500 }}
+            >
+              The Pride <em className="not-italic md:italic text-[#C9A84C] font-medium">of the North</em>
             </h1>
-            <p className="mt-6 text-white/75 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+            <p
+              className="mt-6 mx-auto max-w-xl text-white/80"
+              style={{ fontSize: "18px", lineHeight: 1.8 }}
+            >
               A luxury safari, ranch stay and events sanctuary where wild Africa
               meets refined hospitality.
             </p>
@@ -235,13 +245,13 @@ function Home() {
               href={wa("Hello Limon Ranch, I'd like to book a stay.")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C9A84C] text-black text-xs tracking-[0.25em] uppercase font-medium hover:bg-[#d8b962] transition-colors"
+              className="inline-flex h-12 items-center justify-center gap-2 px-6 rounded-lg bg-[#C9A84C] text-black text-xs tracking-[0.22em] uppercase font-medium hover:bg-[#d8b962] transition-colors"
             >
               <MessageCircle className="h-4 w-4" /> Book via WhatsApp
             </a>
             <a
               href="#experiences"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white text-xs tracking-[0.25em] uppercase font-medium hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
+              className="inline-flex h-12 items-center justify-center gap-2 px-7 rounded-lg border border-white/40 text-white text-xs tracking-[0.22em] uppercase font-medium hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
             >
               Explore Experiences
             </a>
