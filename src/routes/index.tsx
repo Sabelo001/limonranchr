@@ -155,7 +155,7 @@ function Home() {
               href={wa("Hello Limon Ranch, I'd like to make a booking.")}
               target="_blank"
               rel="noreferrer"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-xs tracking-[0.2em] uppercase border border-gold/70 text-gold hover:bg-gold hover:text-primary-foreground transition-all"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs tracking-[0.2em] uppercase border border-gold/70 text-gold hover:bg-gold hover:text-primary-foreground transition-all"
             >
               Reserve
             </a>
@@ -186,7 +186,7 @@ function Home() {
                 href={wa("Hello Limon Ranch, I'd like to make a booking.")}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 text-xs tracking-[0.2em] uppercase border border-gold/70 text-gold"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-xs tracking-[0.2em] uppercase border border-gold/70 text-gold"
               >
                 Reserve via WhatsApp
               </a>
