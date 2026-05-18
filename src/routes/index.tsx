@@ -554,13 +554,13 @@ function Home() {
               href={wa("Hello Limon Ranch, I'd like to plan a visit.")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-gold text-primary-foreground text-xs tracking-[0.25em] uppercase font-medium hover:opacity-90 transition-opacity"
+              className="inline-flex h-12 items-center justify-center gap-2 px-6 rounded-lg bg-gold text-primary-foreground text-xs tracking-[0.22em] uppercase font-medium hover:opacity-90 transition-opacity"
             >
               <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
             </a>
             <a
               href="tel:+254722207384"
-              className="inline-flex items-center justify-center gap-2 px-9 py-4 border border-border text-foreground text-xs tracking-[0.25em] uppercase font-medium hover:border-gold hover:text-gold transition-colors"
+              className="inline-flex h-12 items-center justify-center gap-2 px-7 rounded-lg border border-border text-foreground text-xs tracking-[0.22em] uppercase font-medium hover:border-gold hover:text-gold transition-colors"
             >
               +254 722 207 384
             </a>
@@ -590,7 +590,7 @@ function Home() {
       <footer className="border-t border-border/40 px-6 md:px-10 py-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-0 justify-between">
           <div className="flex flex-col items-center md:items-start gap-3">
-            <img src={logo} alt="Limon Ranch" className="h-12 w-auto" />
+            <img src={logoLight} alt="Limon Ranch" className="h-12 w-auto" />
             <p className="text-xs tracking-[0.3em] uppercase text-gold">
               The Pride of the North
             </p>
