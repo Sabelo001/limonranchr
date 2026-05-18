@@ -279,7 +279,7 @@ function Home() {
             {[
               {
                 title: "Safari & Wildlife",
-                img: wildlife,
+                img: elephants,
                 copy:
                   "Game drives, walking safaris and warrior-guided bush encounters across some of Kenya's wildest country.",
                 cta: "Safari & Wildlife",
@@ -348,13 +348,19 @@ function Home() {
           </div>
 
           <div className="reveal mt-14 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 [grid-auto-rows:160px] md:[grid-auto-rows:220px]">
-            <GalleryItem src={giraffes} alt="Giraffes at sunset" className="col-span-2 row-span-2" />
-            <GalleryItem src={room2} alt="Suite interior" />
-            <GalleryItem src={patio} alt="Outdoor dining patio" />
-            <GalleryItem src={conference} alt="Conference centre entrance" />
+            <GalleryItem src={ololokwe} alt="Mount Ololokwe rising over the Samburu plains" className="col-span-2 row-span-2" />
+            <GalleryItem src={warriors} alt="Samburu warriors at dusk" />
+            <GalleryItem src={reteti} alt="Elephants at Reteti sanctuary" />
+            <GalleryItem src={giraffes} alt="Giraffes at sunset" className="col-span-2" />
+            <GalleryItem src={cottageGarden} alt="Private cottage surrounded by gardens" />
+            <GalleryItem src={room2} alt="Suite interior with four-poster bed" />
+            <GalleryItem src={patio} alt="Outdoor dining patio" className="col-span-2" />
+            <GalleryItem src={bar} alt="The ranch bar" />
+            <GalleryItem src={wildlife} alt="Lioness at golden hour" />
             <GalleryItem src={cottages} alt="Cottages on the hill" className="col-span-2" />
-            <GalleryItem src={events} alt="Events hall" />
+            <GalleryItem src={events} alt="Events hall set for a celebration" />
             <GalleryItem src={room1} alt="Four-poster bedroom" />
+            <GalleryItem src={conference} alt="Conference centre" />
           </div>
         </div>
       </section>
