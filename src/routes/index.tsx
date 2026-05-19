@@ -29,7 +29,6 @@ import room2 from "@/assets/room-2.jpg";
 import patio from "@/assets/patio.jpg";
 import events from "@/assets/events.jpg";
 import conference from "@/assets/conference.jpg";
-import reteti from "@/assets/reteti.jpg";
 import cottageGarden from "@/assets/cottage-garden.jpg";
 import bar from "@/assets/bar.jpg";
 import warriors from "@/assets/samburu-warriors.avif";
@@ -44,6 +43,11 @@ import eventsHall2 from "@/assets/events-hall-2.jpg";
 import buffet from "@/assets/buffet.jpg";
 import milkshake from "@/assets/milkshake.jpg";
 import chickenCurry from "@/assets/chicken-curry.jpg";
+import lakeTurkanaFestival from "@/assets/lake-turkana-cultural-festival.jpg";
+import limonGate from "@/assets/limon-ranch-gate.jpg";
+import malasoEscarpment from "@/assets/malaso-escarpment-viewpoint.jpeg";
+import retetiElephants from "@/assets/reteti-elephants.jpg";
+import samburuReserveGate from "@/assets/samburu-national-reserve-gate.jpg";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
@@ -188,19 +192,39 @@ const experiences = [
 const northernExperiences = [
   {
     title: "Maralal International Camel Derby",
-    copy: "A major Maralal event and seasonal attraction for guests who want to plan a stay around the town's best-known calendar moment.",
+    distance:
+      "Within Maralal / short local drive from Limon Ranch. Confirm exact event venue depending on the year.",
+    copy: "A major seasonal Maralal event bringing together camel racing, culture, visitors and local energy. Guests staying at Limon Ranch during derby season can use the property as a calm base for rest, meals, meetings or private stays while enjoying the town's best-known annual event.",
   },
   {
-    title: "Lake Turkana Cultural Festival",
-    copy: "An extended Northern Kenya cultural experience that requires advance itinerary planning rather than a casual nearby outing.",
+    title: "Malaso Escarpment / World's End Viewpoint",
+    distance:
+      "Approx. 25 to 40 km from Maralal, depending on the route and viewpoint used. Treat as a planned half-day or day outing.",
+    copy: "A dramatic viewpoint overlooking the escarpment and Northern Kenya landscapes. Best planned with local guidance, suitable transport and enough time for road conditions, photography and scenic stops.",
   },
   {
-    title: "Gateway to Suguta Valley",
-    copy: "A remote Northern Kenya adventure route for experienced, well-planned excursions with suitable transport and local guidance.",
+    title: "Suguta Valley View / Gateway Route",
+    distance:
+      "Approx. 40 km or more from Maralal depending on the exact viewpoint or route. Treat as a rugged planned excursion, not a casual nearby stop.",
+    copy: "A remote Northern Kenya adventure route known for wide views, rugged terrain and striking landscapes. This should be positioned as an extended scenic experience requiring advance planning, suitable transport and local guidance.",
   },
   {
     title: "Samburu National Reserve",
-    copy: "A possible planned excursion where suitable travel arrangements are discussed in advance; it is not positioned as an on-site activity.",
+    distance:
+      "Approx. 150 to 200 km by road from Maralal/Limon Ranch depending on route and gate. Treat as a planned excursion, not a nearby attraction.",
+    copy: "A possible wildlife excursion for guests with suitable travel arrangements planned in advance. Do not treat it as next door to Limon Ranch; guests should discuss timing, road conditions, transport or flight options with the team before planning.",
+  },
+  {
+    title: "Lake Turkana Cultural Festival",
+    distance:
+      "Approx. 250 to 300 km or more by road from Maralal depending on route and road conditions. Treat as an extended Northern Kenya cultural journey, not a nearby day trip.",
+    copy: "A vibrant cultural experience around Lake Turkana / Loiyangalani that celebrates Northern Kenya communities, music, dress, traditions and heritage. Position it as an extended itinerary for guests exploring the wider region, requiring early planning and suitable travel arrangements.",
+  },
+  {
+    title: "Reteti Elephant Sanctuary",
+    distance:
+      "Planned Northern Kenya excursion; confirm travel time, route and access with the team before making firm plans.",
+    copy: "Reteti Elephant Sanctuary is a community-led elephant rescue and rehabilitation project in Northern Kenya. It is best discussed as part of a planned conservation-focused route with suitable transport and timing.",
   },
 ];
 
@@ -219,7 +243,8 @@ const galleryGroups = [
     items: [
       { src: hero, alt: "Limon Ranch exterior and landscaped grounds", className: "col-span-2" },
       { src: cottageGarden, alt: "Landscaped gardens at Limon Ranch" },
-      { src: reteti, alt: "Green surroundings near Limon Ranch" },
+      { src: patio, alt: "Outdoor patio and grounds at Limon Ranch" },
+      { src: limonGate, alt: "Limon Ranch property grounds and entrance", className: "col-span-2" },
     ],
   },
   {
@@ -265,6 +290,44 @@ const galleryGroups = [
       },
       { src: atmosphericHero, alt: "Northern Kenya landscape inspiration" },
       { src: warriors, alt: "Samburu cultural moment in Northern Kenya" },
+      {
+        src: samburuReserveGate,
+        alt: "Samburu National Reserve gate for planned excursion context",
+        className: "col-span-2",
+      },
+    ],
+  },
+  {
+    title: "Lake Turkana Cultural Festival",
+    copy: "Cultural imagery for the extended Lake Turkana / Loiyangalani journey, shown as regional inspiration rather than an on-site Limon Ranch activity.",
+    items: [
+      {
+        src: lakeTurkanaFestival,
+        alt: "Lake Turkana Cultural Festival regional cultural experience",
+        className: "col-span-2",
+      },
+    ],
+  },
+  {
+    title: "Malaso Escarpment / Viewpoints",
+    copy: "Viewpoint imagery for planned Malaso Escarpment and World's End outings from the Maralal area.",
+    items: [
+      {
+        src: malasoEscarpment,
+        alt: "Malaso Escarpment viewpoint and Northern Kenya landscape",
+        className: "col-span-2",
+      },
+    ],
+  },
+  {
+    title: "Reteti / Conservation",
+    copy: "Conservation-focused Northern Kenya imagery, separated from Limon Ranch property photos.",
+    items: [
+      {
+        src: retetiElephants,
+        alt: "Reteti Elephant Sanctuary conservation experience",
+        className: "col-span-2",
+      },
     ],
   },
   {
@@ -274,7 +337,6 @@ const galleryGroups = [
       { src: campingGround, alt: "Outdoor grounds at Limon Ranch", className: "col-span-2" },
       { src: playground, alt: "Outdoor family space at Limon Ranch" },
       { src: gamesLounge, alt: "Games lounge at Limon Ranch" },
-      { src: patio, alt: "Outdoor patio dining at Limon Ranch" },
     ],
   },
 ];
@@ -379,7 +441,6 @@ function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/62" />
           <div className="relative z-10 mx-auto flex min-h-[calc(88svh-5rem)] max-w-7xl items-end px-5 pb-16 pt-20 md:min-h-[calc(88svh-6rem)] md:px-10 md:pb-20">
             <div className="reveal max-w-3xl text-white">
-              <p className="eyebrow text-[#e2c783]">Maralal Retreat</p>
               <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.02] text-white sm:text-5xl md:text-7xl">
                 Limon Ranch
               </h1>
@@ -490,16 +551,20 @@ function Home() {
               </div>
               <div className="space-y-5 text-sm leading-8 text-[#625545] md:text-base">
                 <p>
-                  From Maralal&apos;s camel derby season to extended Northern Kenya routes toward
-                  Lake Turkana, Suguta Valley and Samburu National Reserve, Limon Ranch offers a
-                  calm base for guests planning meaningful regional experiences. Speak with the team
-                  about what is practical for your dates, transport and itinerary.
+                  Northern Kenya is rich with culture, landscapes and wildlife experiences. Limon
+                  Ranch offers a calm Maralal base for guests planning regional journeys, seasonal
+                  events and extended excursions. Speak with the team about what is practical for
+                  your dates, transport, road conditions and budget.
                 </p>
                 <p>
                   Wildlife and Northern Kenya excursions can be discussed with the Limon Ranch team,
                   including Samburu National Reserve visits where suitable travel arrangements are
-                  planned in advance. Some guest-specific travel arrangements may involve private
-                  transport or flying arrangements, depending on itinerary and budget.
+                  planned in advance. Some extended experiences may require early planning, private
+                  transport, or flight arrangements depending on itinerary and budget.
+                </p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8c7155]">
+                  Distances are approximate and may vary depending on route, road conditions and
+                  season.
                 </p>
               </div>
             </div>
@@ -510,6 +575,10 @@ function Home() {
                   <h4 className="font-display text-2xl font-semibold text-[#332b22]">
                     {item.title}
                   </h4>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#a5633e]">
+                    Estimated distance
+                  </p>
+                  <p className="mt-2 text-sm leading-7 text-[#625545]">{item.distance}</p>
                   <p className="mt-4 text-sm leading-7 text-[#625545]">{item.copy}</p>
                 </article>
               ))}
@@ -679,8 +748,8 @@ function Home() {
                 Read our Google Reviews
               </h2>
               <p className="mt-5 leading-8 text-[#625545]">
-                See what guests are saying about Limon Ranch on Google. No review excerpts, ratings
-                or reviewer names are shown here, so the site stays accurate and easy to verify.
+                See what guests are saying about Limon Ranch on Google. We link directly to the
+                public profile so feedback stays accurate and easy to verify.
               </p>
               <a
                 href={GOOGLE_REVIEWS_URL}
@@ -879,9 +948,13 @@ function GalleryGroup({
         </div>
       </div>
       <div className="grid grid-cols-2 gap-3 [grid-auto-rows:150px] md:grid-cols-4 md:[grid-auto-rows:220px]">
-        {items.map((item) => (
-          <GalleryItem key={`${title}-${item.alt}`} {...item} />
-        ))}
+        {items.length > 0 ? (
+          items.map((item) => <GalleryItem key={`${title}-${item.alt}`} {...item} />)
+        ) : (
+          <div className="col-span-2 flex min-h-36 items-center border border-dashed border-[#cbbda8] bg-[#fbf7ef] p-6 text-sm leading-7 text-[#625545] md:col-span-4">
+            Official reference images for this category can be added here once provided.
+          </div>
+        )}
       </div>
     </section>
   );
