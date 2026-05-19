@@ -9,6 +9,11 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import hero from "@/assets/hero.jpg";
+
+const SITE_TITLE = "Limon Ranch | Maralal Retreat, Stays, Meetings & Private Getaways";
+const SITE_DESCRIPTION =
+  "Limon Ranch is a peaceful retreat in Maralal offering landscaped grounds, comfortable stays, meetings, private getaways and retreat space in Samburu County, Kenya.";
 
 function NotFoundComponent() {
   return (
@@ -72,18 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Limon Ranch Luxury Launch is a mobile-first landing page for a luxury safari, ranch stay, and events destination." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Limon Ranch Luxury Launch is a mobile-first landing page for a luxury safari, ranch stay, and events destination." },
+      { title: SITE_TITLE },
+      { name: "description", content: SITE_DESCRIPTION },
+      { property: "og:title", content: SITE_TITLE },
+      { property: "og:description", content: SITE_DESCRIPTION },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Limon Ranch Luxury Launch is a mobile-first landing page for a luxury safari, ranch stay, and events destination." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/aa8ee323-26c6-4ceb-ad89-71c0efa16a24/id-preview-a7c12b6b--5dcd8c81-0998-49ad-a108-a753e7f27ebf.lovable.app-1779136508506.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/aa8ee323-26c6-4ceb-ad89-71c0efa16a24/id-preview-a7c12b6b--5dcd8c81-0998-49ad-a108-a753e7f27ebf.lovable.app-1779136508506.png" },
+      { property: "og:image", content: hero },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: SITE_TITLE },
+      { name: "twitter:description", content: SITE_DESCRIPTION },
+      { name: "twitter:image", content: hero },
     ],
     links: [
       {

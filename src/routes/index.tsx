@@ -1,19 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
-  MessageCircle,
+  BedDouble,
+  Building2,
+  CalendarDays,
+  CheckCircle2,
+  Compass,
   Facebook,
   Instagram,
   MapPin,
-  Sun,
-  Moon,
   Menu,
-  X,
+  MessageCircle,
+  Phone,
   Quote,
+  Utensils,
+  Users,
+  X,
 } from "lucide-react";
-import logo from "@/assets/logo.png";
-import logoLight from "@/assets/logo-light.png";
-import hero from "@/assets/hero.jpg";
+import logo from "@/assets/logo-clean.png";
+import footerLogo from "@/assets/logo-footer.png";
+import hero from "@/assets/property-exterior.jpg";
+import atmosphericHero from "@/assets/hero.jpg";
 import wildlife from "@/assets/wildlife.jpg";
 import giraffes from "@/assets/giraffes.jpg";
 import cottages from "@/assets/cottages.jpg";
@@ -22,12 +29,10 @@ import room2 from "@/assets/room-2.jpg";
 import patio from "@/assets/patio.jpg";
 import events from "@/assets/events.jpg";
 import conference from "@/assets/conference.jpg";
-import ololokwe from "@/assets/ololokwe.jpg";
 import reteti from "@/assets/reteti.jpg";
 import cottageGarden from "@/assets/cottage-garden.jpg";
 import bar from "@/assets/bar.jpg";
 import warriors from "@/assets/samburu-warriors.avif";
-import elephants from "@/assets/samburu-elephants.avif";
 import campingGround from "@/assets/camping-ground.jpg";
 import playground from "@/assets/playground.jpg";
 import lounge from "@/assets/lounge.jpg";
@@ -45,29 +50,47 @@ import { useReveal } from "@/hooks/use-reveal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Limon Ranch — The Pride of the North | Luxury Samburu Safari & Stays" },
+      {
+        title: "Limon Ranch | Maralal Retreat, Stays, Meetings & Private Getaways",
+      },
       {
         name: "description",
         content:
-          "Limon Ranch is a luxury safari, ranch stay and events destination in Samburu County, northern Kenya. Wild Africa, refined.",
+          "Limon Ranch is a peaceful retreat in Maralal offering landscaped grounds, comfortable stays, meetings, private getaways and retreat space in Samburu County, Kenya.",
       },
-      { property: "og:title", content: "Limon Ranch — The Pride of the North" },
+      {
+        property: "og:title",
+        content: "Limon Ranch | Maralal Retreat, Stays, Meetings & Private Getaways",
+      },
       {
         property: "og:description",
         content:
-          "Luxury safari, ranch stays, weddings and conferences in Samburu County, Kenya.",
+          "Limon Ranch is a peaceful retreat in Maralal offering landscaped grounds, comfortable stays, meetings, private getaways and retreat space in Samburu County, Kenya.",
       },
       { property: "og:image", content: hero },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Limon Ranch | Maralal Retreat, Stays, Meetings & Private Getaways",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Limon Ranch is a peaceful retreat in Maralal offering landscaped grounds, comfortable stays, meetings, private getaways and retreat space in Samburu County, Kenya.",
+      },
       { name: "twitter:image", content: hero },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap",
       },
     ],
   }),
@@ -75,94 +98,157 @@ export const Route = createFileRoute("/")({
 });
 
 const WHATSAPP = "254722207384";
+const DISPLAY_PHONE = "+254 722 207 384";
 const FB_URL = "https://www.facebook.com/profile.php?id=100070965084168";
 const IG_URL = "https://instagram.com/limon_ranch";
 const TIKTOK_URL = "https://tiktok.com/@limonranch";
+const MAP_PLUS_CODE = "3MPH+GQM, Lpartuk";
+const MAP_LOCATION = `${MAP_PLUS_CODE} · Maralal / Samburu County, Kenya`;
+const MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  MAP_PLUS_CODE,
+)}`;
+const EWASO_URL = "https://ewasodigital.co.ke";
 
-const wa = (msg: string) =>
-  `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+const wa = (msg: string) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+
+const nav = [
+  { label: "Home", href: "#top" },
+  { label: "Accommodation", href: "#accommodation" },
+  { label: "Experiences", href: "#experiences" },
+  { label: "Restaurant", href: "#restaurant" },
+  { label: "Events", href: "#events" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Contact", href: "#contact" },
+];
+
+const accommodations = [
+  {
+    title: "Cottages / Rooms",
+    img: room1,
+    icon: BedDouble,
+    copy: "Comfortable rooms and cottages for guests who want a quiet Maralal retreat with warm, personal hospitality.",
+  },
+  {
+    title: "Camping Grounds",
+    img: campingGround,
+    icon: Users,
+    copy: "Outdoor grounds for simple stays, group time and quiet leisure within the landscaped ranch setting.",
+  },
+  {
+    title: "Family & Group Stays",
+    img: cottages,
+    icon: Users,
+    copy: "Flexible stays for families, friends and small groups looking for space to rest and reconnect.",
+  },
+  {
+    title: "Event Accommodation",
+    img: conferenceExterior,
+    icon: CalendarDays,
+    copy: "Convenient accommodation support for meetings, conferences, team retreats and private gatherings.",
+  },
+];
+
+const experiences = [
+  {
+    title: "Restaurant & Bar",
+    img: foodPlatter,
+    icon: Utensils,
+    copy: "Enjoy relaxed meals and warm service while staying, meeting or gathering at the ranch.",
+  },
+  {
+    title: "Meetings & Conferences",
+    img: conference,
+    icon: Building2,
+    copy: "Use the conference centre for focused meetings, team retreats and meaningful planning sessions.",
+  },
+  {
+    title: "Private Getaways",
+    img: playground,
+    icon: CalendarDays,
+    copy: "Plan a quiet stay for rest, reconnection and time away in a peaceful Maralal setting.",
+  },
+  {
+    title: "Team Retreats",
+    img: patio,
+    icon: BedDouble,
+    copy: "Bring your team together in a quiet setting with room to focus, reconnect and plan well.",
+  },
+  {
+    title: "Camping & Outdoor Leisure",
+    img: campingGround,
+    icon: Compass,
+    copy: "Enjoy outdoor space, fresh air and unhurried time around the landscaped ranch grounds.",
+  },
+  {
+    title: "Samburu / Northern Kenya Experiences",
+    img: atmosphericHero,
+    icon: Compass,
+    copy: "Use Limon Ranch as a calm Maralal base while planning gentle local and Northern Kenya experiences.",
+  },
+];
+
+const trustPoints = [
+  "Beautiful landscaped grounds",
+  "Comfortable accommodation",
+  "Conference centre for meetings and retreats",
+  "Quiet setting for rest and connection",
+  "Ideal for getaways, team retreats and private stays",
+];
 
 function Home() {
   useReveal();
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "light") root.classList.add("light");
-    else root.classList.remove("light");
-  }, [theme]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const nav = [
-    { label: "About", href: "#about" },
-    { label: "Experiences", href: "#experiences" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Stories", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
-  ];
-
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* NAV */}
+    <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
           scrolled
-            ? "backdrop-blur-md bg-background/85 border-b border-border/40"
-            : "bg-transparent border-b border-transparent"
+            ? "border-[#b8ae9b]/70 bg-[#d9d0bd]/95 shadow-sm backdrop-blur-md"
+            : "border-[#c8bea9]/70 bg-[#d9d0bd]/92"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3">
-            <img src={logoLight} alt="Limon Ranch" className="h-9 md:h-11 w-auto" />
-            <span className="hidden sm:block font-display text-lg tracking-wide">
-              Limon Ranch
-            </span>
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:h-24 md:px-8 xl:px-10">
+          <a href="#top" className="flex min-w-0 items-center gap-3">
+            <img
+              src={logo}
+              alt="Limon Ranch"
+              className="h-12 w-auto max-w-[170px] object-contain md:h-14 md:max-w-[200px]"
+              width={200}
+              height={144}
+            />
           </a>
 
-          <nav className="hidden md:flex items-center gap-9 text-sm">
+          <nav className="hidden items-center gap-6 text-[0.78rem] font-semibold uppercase tracking-wide text-[#695d4d] lg:flex">
             {nav.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
-                className="text-foreground/75 hover:text-gold transition-colors tracking-wide"
-              >
+              <a key={n.href} href={n.href} className="transition-colors hover:text-[#b66f45]">
                 {n.label}
               </a>
             ))}
           </nav>
 
           <div className="flex items-center gap-3">
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-              className="p-2 rounded-full border border-border/60 hover:border-gold/60 transition-colors"
-            >
-              {theme === "dark" ? (
-                <Sun className="h-4 w-4 text-gold" />
-              ) : (
-                <Moon className="h-4 w-4 text-gold" />
-              )}
-            </button>
             <a
-              href={wa("Hello Limon Ranch, I'd like to make a booking.")}
+              href={wa("Hello Limon Ranch, I'd like to check availability.")}
               target="_blank"
               rel="noreferrer"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs tracking-[0.2em] uppercase border border-gold/70 text-gold hover:bg-gold hover:text-primary-foreground transition-all"
+              className="hidden h-12 items-center justify-center rounded-md border-2 border-white px-6 font-display text-base font-semibold text-white shadow-sm transition-colors hover:bg-white hover:text-[#6d5f4d] md:inline-flex md:bg-[#806f59]"
             >
-              Reserve
+              Book Now
             </a>
             <button
               onClick={() => setMenuOpen((v) => !v)}
-              className="md:hidden p-2 text-foreground"
-              aria-label="Menu"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#ad9f8b] text-[#493f32] lg:hidden"
+              aria-expanded={menuOpen}
+              aria-label="Toggle menu"
             >
               {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -170,450 +256,527 @@ function Home() {
         </div>
 
         {menuOpen && (
-          <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-lg">
-            <div className="px-6 py-6 flex flex-col gap-5">
+          <div className="border-t border-[#c8bea9] bg-[#efe8dc] lg:hidden">
+            <nav className="mx-auto flex max-w-7xl flex-col px-5 py-5">
               {nav.map((n) => (
                 <a
                   key={n.href}
                   href={n.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-foreground/80 hover:text-gold text-sm tracking-wide"
+                  className="border-b border-[#d6cbbb] py-4 text-sm font-semibold uppercase tracking-wide text-[#574b3c]"
                 >
                   {n.label}
                 </a>
               ))}
               <a
-                href={wa("Hello Limon Ranch, I'd like to make a booking.")}
+                href={wa("Hello Limon Ranch, I'd like to check availability.")}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-xs tracking-[0.2em] uppercase border border-gold/70 text-gold"
+                className="mt-5 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#8c7155] px-5 text-xs font-semibold uppercase tracking-[0.18em] text-white"
               >
-                Reserve via WhatsApp
+                <WhatsAppIcon className="h-4 w-4" /> Book Now
               </a>
-            </div>
+            </nav>
           </div>
         )}
       </header>
 
-      {/* HERO */}
-      <section id="top" className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
-        <img
-          src={hero}
-          alt="Samburu landscape at golden hour"
-          className="absolute inset-0 h-full w-full object-cover"
-          width={1920}
-          height={1280}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
-
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-          <div className="reveal">
-            <img
-              src={logoLight}
-              alt="Limon Ranch"
-              className="mx-auto h-28 md:h-44 w-auto"
-            />
-          </div>
-
-          <div className="reveal mt-8 max-w-3xl" style={{ transitionDelay: "120ms" }}>
-            <p
-              className="text-[#C9A84C] uppercase font-medium"
-              style={{ fontSize: "0.7rem", letterSpacing: "0.28em" }}
-            >
-              Samburu County · Northern Kenya
-            </p>
-            <h1
-              className="mt-5 font-display text-white text-balance text-4xl sm:text-5xl md:text-6xl"
-              style={{ letterSpacing: "-0.02em", lineHeight: 1.05, fontWeight: 500 }}
-            >
-              The Pride <em className="not-italic md:italic text-[#C9A84C] font-medium">of the North</em>
-            </h1>
-            <p
-              className="mt-6 mx-auto max-w-xl text-white/80"
-              style={{ fontSize: "18px", lineHeight: 1.8 }}
-            >
-              A luxury safari, ranch stay and events sanctuary where wild Africa
-              meets refined hospitality.
-            </p>
-          </div>
-
-          <div
-            className="reveal mt-10 flex flex-col sm:flex-row gap-4 w-full max-w-md sm:max-w-none sm:w-auto"
-            style={{ transitionDelay: "240ms" }}
-          >
-            <a
-              href={wa("Hello Limon Ranch, I'd like to book a stay.")}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-12 items-center justify-center gap-2 px-6 rounded-lg bg-[#C9A84C] text-black text-xs tracking-[0.22em] uppercase font-medium hover:bg-[#d8b962] transition-colors"
-            >
-              <MessageCircle className="h-4 w-4" /> Book via WhatsApp
-            </a>
-            <a
-              href="#experiences"
-              className="inline-flex h-12 items-center justify-center gap-2 px-7 rounded-lg border border-white/40 text-white text-xs tracking-[0.22em] uppercase font-medium hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
-            >
-              Explore Experiences
-            </a>
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/50 text-[10px] tracking-[0.4em] uppercase">
-          Scroll
-        </div>
-      </section>
-
-      {/* ABOUT */}
-      <section id="about" className="py-28 md:py-44 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div className="reveal order-2 md:order-1">
-            <p className="eyebrow">Our Story</p>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight text-balance">
-              A sanctuary carved from the soul of Samburu.
-            </h2>
-            <span className="gold-rule mt-6" />
-            <div className="mt-8 space-y-5 text-foreground/75 leading-relaxed">
-              <p>
-                Set against the rugged, sun-drenched plains of northern Kenya,
-                Limon Ranch is a quiet escape for those who seek the
-                extraordinary. Here, the rhythm of the bush meets the comfort
-                of a private retreat — every sunrise an invitation, every night
-                a constellation.
+      <main>
+        <section id="top" className="relative min-h-[88svh] overflow-hidden pt-20 md:pt-24">
+          <img
+            src={hero}
+            alt="Limon Ranch peaceful Maralal retreat"
+            className="absolute inset-0 h-full w-full object-cover object-center brightness-[0.68] saturate-[0.82] contrast-[0.96]"
+            width={1920}
+            height={1280}
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/38 to-black/18" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/62" />
+          <div className="relative z-10 mx-auto flex min-h-[calc(88svh-5rem)] max-w-7xl items-end px-5 pb-16 pt-20 md:min-h-[calc(88svh-6rem)] md:px-10 md:pb-20">
+            <div className="reveal max-w-3xl text-white">
+              <p className="eyebrow text-[#e2c783]">Maralal Retreat</p>
+              <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.02] text-white sm:text-5xl md:text-7xl">
+                Limon Ranch
+              </h1>
+              <p className="mt-4 font-display text-3xl text-[#e2c783] md:text-5xl">
+                Stay. Gather. Unwind.
               </p>
-              <p>
-                Owned and run by people who call this land home, the ranch
-                weaves Samburu warmth into every detail — from warrior-led bush
-                walks to long evenings around the fire pit, beneath skies
-                heavy with stars.
+              <p className="mt-6 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
+                A peaceful retreat in Maralal with landscaped grounds, comfortable stays, and space
+                for private getaways, meetings, and retreats.
               </p>
+              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href={wa("Hello Limon Ranch, I'd like to book or ask availability.")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c58a63] px-6 text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#b1764e]"
+                >
+                  <WhatsAppIcon className="h-4 w-4" /> Check Availability
+                </a>
+                <a
+                  href="#accommodation"
+                  className="inline-flex h-12 items-center justify-center rounded-md border border-white/70 px-6 text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors hover:border-[#e2c783] hover:text-[#e2c783]"
+                >
+                  View Stays
+                </a>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div className="reveal order-1 md:order-2 relative" style={{ transitionDelay: "120ms" }}>
-            <div className="absolute -inset-4 border border-gold/30 -z-10" />
-            <img
-              src={cottages}
-              alt="Limon Ranch cottages overlooking the Samburu hills"
-              loading="lazy"
-              className="w-full h-[420px] md:h-[560px] object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* EXPERIENCES */}
-      <section id="experiences" className="py-28 md:py-44 px-6 md:px-10 bg-card/40 border-y border-border/40">
-        <div className="max-w-7xl mx-auto">
-          <div className="reveal text-center max-w-2xl mx-auto">
-            <p className="eyebrow">Experiences</p>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight text-balance">
-              Three ways to live the Pride.
-            </h2>
-            <span className="gold-rule mt-6" />
-          </div>
-
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {[
-              {
-                title: "Safari & Wildlife",
-                img: elephants,
-                copy:
-                  "Game drives, walking safaris and warrior-guided bush encounters across some of Kenya's wildest country.",
-                cta: "Safari & Wildlife",
-              },
-              {
-                title: "Ranch Stays",
-                img: room1,
-                copy:
-                  "Four-poster beds, private cottages and slow mornings — refined comfort in the heart of the savanna.",
-                cta: "Ranch Stay",
-              },
-              {
-                title: "Restaurant & Bar",
-                img: foodPlatter,
-                copy:
-                  "From sizzling nyama choma platters to handcrafted milkshakes — a kitchen and bar built around long, golden meals.",
-                cta: "Restaurant & Bar",
-              },
-              {
-                title: "Events & Conferences",
-                img: eventsHall,
-                copy:
-                  "Weddings, birthdays, retreats and conferences hosted in elegant halls and open-air settings.",
-                cta: "Events & Conferences",
-              },
-            ].map((card, i) => (
-              <article
-                key={card.title}
-                className="reveal group relative overflow-hidden bg-background border border-border/50"
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                <div className="relative h-72 overflow-hidden">
-                  <img
-                    src={card.img}
-                    alt={card.title}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                </div>
-                <div className="p-8">
-                  <h3 className="font-display text-2xl">{card.title}</h3>
-                  <span className="gold-rule mt-4" />
-                  <p className="mt-5 text-sm text-foreground/70 leading-relaxed">
-                    {card.copy}
-                  </p>
-                  <a
-                    href={wa(
-                      `Hello Limon Ranch, I'd like to enquire about ${card.cta}.`,
-                    )}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-7 inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-gold border-b border-gold/40 pb-1 hover:border-gold transition-colors"
-                  >
-                    <MessageCircle className="h-3.5 w-3.5" /> Enquire
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* OLOLOKWE FEATURE */}
-      <section className="relative h-[70vh] min-h-[460px] w-full overflow-hidden">
-        <img
-          src={ololokwe}
-          alt="Mount Ololokwe — the sacred table mountain of the Samburu"
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/15 to-black/65" />
-        <div className="relative z-10 h-full flex items-end">
-          <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pb-16 md:pb-24">
-            <div className="reveal max-w-2xl text-white">
-              <p className="eyebrow text-[#C9A84C]">Land of Legend</p>
-              <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight text-balance">
-                In the shadow of Ololokwe.
+        <section className="bg-[#f5efe5] px-5 py-14 md:px-10">
+          <div className="reveal mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.9fr_1.4fr] md:items-center">
+            <div>
+              <p className="eyebrow">Calm, Comfort and Connection</p>
+              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-5xl">
+                Experience calm, comfort and connection at Limon Ranch.
               </h2>
-              <span className="gold-rule mt-6 bg-[#C9A84C]" />
-              <p className="mt-6 text-white/80 leading-relaxed">
-                The sacred table mountain of the Samburu watches over our land — a
-                landmark of the north, alongside the elephants of Reteti, the
-                singing wells, and a culture as old as the hills themselves.
+            </div>
+            <div className="space-y-5 text-sm leading-8 text-[#625545] md:text-base">
+              <p>
+                Limon Ranch is a quiet Maralal retreat for guests who want space to rest, reconnect
+                or plan something meaningful. The property brings together landscaped grounds,
+                comfortable accommodation and warm hospitality in one peaceful setting.
+              </p>
+              <p>
+                Come for a private getaway, a focused meeting, a team retreat or a simple stay away
+                from the noise. WhatsApp remains the fastest way to ask availability and plan your
+                visit.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* RESTAURANT FEATURE */}
-      <section className="py-28 md:py-44 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div className="reveal relative">
-            <div className="absolute -inset-4 border border-gold/30 -z-10" />
-            <img
-              src={foodPlatter}
-              alt="Signature Limon Ranch nyama choma platter"
-              loading="lazy"
-              className="w-full h-[420px] md:h-[560px] object-cover"
-            />
-          </div>
-          <div className="reveal" style={{ transitionDelay: "120ms" }}>
-            <p className="eyebrow">The Restaurant</p>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight text-balance">
-              A kitchen built for long, golden meals.
-            </h2>
-            <span className="gold-rule mt-6" />
-            <div className="mt-8 space-y-5 text-foreground/75 leading-relaxed">
-              <p>
-                From sizzling nyama choma platters and slow-simmered curries to
-                crisp salads in the sun and handcrafted milkshakes by the fire —
-                our restaurant celebrates the flavours of the north with quiet
-                confidence.
-              </p>
-              <p>
-                Pair every meal with a thoughtful bar list, then linger over a
-                game of pool in the lounge as the day slips into Samburu dusk.
-              </p>
-            </div>
-            <a
-              href={wa("Hello Limon Ranch, I'd like to book a table at the restaurant.")}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-gold border-b border-gold/40 pb-1 hover:border-gold transition-colors"
-            >
-              <MessageCircle className="h-3.5 w-3.5" /> Reserve a Table
-            </a>
-          </div>
-        </div>
-      </section>
+        <section id="accommodation" className="section-pad bg-background">
+          <SectionIntro
+            eyebrow="Accommodation"
+            title="Comfortable stays in Maralal."
+            copy="Choose Limon Ranch for peaceful accommodation, private getaways, team retreats and stay support around meetings or conferences."
+          />
 
-      {/* GALLERY */}
-      <section id="gallery" className="py-28 md:py-44 px-6 md:px-10 bg-card/40 border-y border-border/40">
-        <div className="max-w-7xl mx-auto">
-          <div className="reveal text-center max-w-2xl mx-auto">
-            <p className="eyebrow">Gallery</p>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight text-balance">
-              Moments at the ranch.
-            </h2>
-            <span className="gold-rule mt-6" />
-          </div>
-
-          <div className="reveal mt-14 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 [grid-auto-rows:160px] md:[grid-auto-rows:220px]">
-            <GalleryItem src={ololokwe} alt="Mount Ololokwe rising over the Samburu plains" className="col-span-2 row-span-2" />
-            <GalleryItem src={warriors} alt="Samburu warriors at dusk" />
-            <GalleryItem src={reteti} alt="Elephants at Reteti sanctuary" />
-            <GalleryItem src={campingGround} alt="Open camping ground and lawns" className="col-span-2" />
-            <GalleryItem src={playground} alt="Playground in the gardens" />
-            <GalleryItem src={lounge} alt="Lounge and bar" />
-            <GalleryItem src={chickenCurry} alt="Slow-simmered chicken curry" className="col-span-2" />
-            <GalleryItem src={chickenFries} alt="Crispy chicken and fries in the sun" />
-            <GalleryItem src={milkshake} alt="Handcrafted chocolate milkshake" />
-            <GalleryItem src={giraffes} alt="Giraffes at sunset" className="col-span-2" />
-            <GalleryItem src={cottageGarden} alt="Private cottage surrounded by gardens" />
-            <GalleryItem src={room2} alt="Suite interior with four-poster bed" />
-            <GalleryItem src={buffet} alt="Buffet service on the patio" className="col-span-2" />
-            <GalleryItem src={bar} alt="The ranch bar" />
-            <GalleryItem src={gamesLounge} alt="Games lounge with pool table" />
-            <GalleryItem src={eventsHall2} alt="Events hall styled for a celebration" className="col-span-2" />
-            <GalleryItem src={patio} alt="Outdoor dining patio" />
-            <GalleryItem src={wildlife} alt="Lioness at golden hour" />
-            <GalleryItem src={cottages} alt="Cottages on the hill" className="col-span-2" />
-            <GalleryItem src={events} alt="Events hall set for a celebration" />
-            <GalleryItem src={room1} alt="Four-poster bedroom" />
-            <GalleryItem src={conferenceExterior} alt="Conference centre exterior" className="col-span-2" />
-            <GalleryItem src={conference} alt="Conference centre interior" />
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section
-        id="testimonials"
-        className="py-28 md:py-44 px-6 md:px-10 bg-card/40 border-y border-border/40"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="reveal text-center max-w-2xl mx-auto">
-            <p className="eyebrow">Guest Stories</p>
-            <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight">
-              Words from the wild.
-            </h2>
-            <span className="gold-rule mt-6" />
-          </div>
-
-          <div className="mt-16 grid md:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                q: "The most quietly magnificent stay we've ever had in Africa. Limon Ranch feels like a private secret of the north.",
-                a: "Amelia & James — London",
-              },
-              {
-                q: "From the warrior-guided walk to dinner under the stars, every moment was intentional. Wild luxury at its finest.",
-                a: "Wanjiku M. — Nairobi",
-              },
-              {
-                q: "We hosted our wedding here. Guests are still talking about the sunsets, the food, and the soul of the place.",
-                a: "The Lekishon Family",
-              },
-            ].map((t, i) => (
-              <figure
-                key={i}
-                className="reveal bg-background border border-border/50 p-8 md:p-10 flex flex-col"
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                <Quote className="h-7 w-7 text-gold/70" />
-                <blockquote className="mt-5 font-display text-lg md:text-xl leading-relaxed text-foreground/90 italic">
-                  "{t.q}"
-                </blockquote>
-                <span className="gold-rule mt-6" />
-                <figcaption className="mt-5 text-xs tracking-[0.25em] uppercase text-foreground/60">
-                  {t.a}
-                </figcaption>
-              </figure>
+          <div className="mx-auto mt-14 grid max-w-7xl gap-7 px-5 md:grid-cols-2 md:px-10 xl:grid-cols-4">
+            {accommodations.map((card, i) => (
+              <ImageCard key={card.title} {...card} delay={i * 90} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section id="contact" className="py-28 md:py-44 px-6 md:px-10">
-        <div className="max-w-5xl mx-auto text-center reveal">
-          <p className="eyebrow">Plan your visit</p>
-          <h2 className="mt-5 font-display text-3xl md:text-5xl leading-tight text-balance">
-            Begin your Samburu story.
-          </h2>
-          <span className="gold-rule mt-6" />
-          <p className="mt-8 text-foreground/70 max-w-xl mx-auto leading-relaxed">
-            Reservations, private events and bespoke safaris — speak with our
-            team directly. We respond personally, within hours.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
+          <div className="reveal mt-12 flex justify-center px-5 md:px-10">
             <a
-              href={wa("Hello Limon Ranch, I'd like to plan a visit.")}
+              href={wa("Hello Limon Ranch, I'd like to ask availability for accommodation.")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-12 items-center justify-center gap-2 px-6 rounded-lg bg-gold text-primary-foreground text-xs tracking-[0.22em] uppercase font-medium hover:opacity-90 transition-opacity"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#8c7155] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#735c45]"
             >
-              <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+              <WhatsAppIcon className="h-4 w-4" /> Ask Availability on WhatsApp
             </a>
+          </div>
+        </section>
+
+        <section id="experiences" className="section-pad bg-[#efe5d6]">
+          <SectionIntro
+            eyebrow="At the Ranch"
+            title="Space to rest, meet and reconnect."
+            copy="Limon Ranch is built around calm grounds, comfortable stays, practical meeting space and the kind of quiet that helps guests breathe and focus."
+          />
+
+          <div className="mx-auto mt-14 grid max-w-7xl gap-7 px-5 sm:grid-cols-2 md:px-10 lg:grid-cols-3">
+            {experiences.map((card, i) => (
+              <ExperienceCard key={card.title} {...card} delay={i * 70} />
+            ))}
+          </div>
+          <div className="reveal mt-12 flex justify-center px-5 md:px-10">
             <a
-              href="tel:+254722207384"
-              className="inline-flex h-12 items-center justify-center gap-2 px-7 rounded-lg border border-border text-foreground text-xs tracking-[0.22em] uppercase font-medium hover:border-gold hover:text-gold transition-colors"
+              href={wa("Hello Limon Ranch, I'd like to plan a stay, meeting or retreat.")}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-[#bba98f] px-6 text-xs font-bold uppercase tracking-[0.18em] text-[#5a4c3d] transition-colors hover:border-[#b1764e] hover:text-[#b1764e]"
             >
-              +254 722 207 384
+              <WhatsAppIcon className="h-4 w-4" /> Plan a Visit
             </a>
           </div>
+        </section>
 
-          <div className="mt-14 flex flex-col items-center gap-6">
-            <div className="flex items-center gap-2 text-foreground/60 text-sm">
-              <MapPin className="h-4 w-4 text-gold" />
-              Samburu County · Maralal, Kenya
+        <section id="restaurant" className="section-pad bg-background">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-2 md:items-center md:px-10">
+            <div className="reveal relative min-h-[440px] overflow-hidden">
+              <img
+                src={foodPlatter}
+                alt="Limon Ranch restaurant food platter"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             </div>
-            <div className="flex items-center gap-5">
-              <Social href={FB_URL} label="Facebook">
-                <Facebook className="h-4 w-4" />
-              </Social>
-              <Social href={IG_URL} label="Instagram">
-                <Instagram className="h-4 w-4" />
-              </Social>
-              <Social href={TIKTOK_URL} label="TikTok">
-                <TikTokIcon />
-              </Social>
+            <div className="reveal md:pl-8" style={{ transitionDelay: "120ms" }}>
+              <p className="eyebrow">Restaurant & Bar</p>
+              <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-5xl">
+                Meals, drinks and easy ranch hospitality.
+              </h2>
+              <span className="gold-rule mt-6" />
+              <p className="mt-7 leading-8 text-[#625545]">
+                The restaurant and bar support the wider retreat experience. Guests can plan a meal,
+                gather between sessions, host a small celebration or add food and drinks to a
+                meeting, retreat or private stay.
+              </p>
+              <a
+                href={wa("Hello Limon Ranch, I'd like to ask about the restaurant and bar.")}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#8c7155] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#735c45]"
+              >
+                <WhatsAppIcon className="h-4 w-4" /> Ask About Restaurant
+              </a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-border/40 px-6 md:px-10 py-12">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-0 justify-between">
-          <div className="flex flex-col items-center md:items-start gap-3">
-            <img src={logoLight} alt="Limon Ranch" className="h-12 w-auto" />
-            <p className="text-xs tracking-[0.3em] uppercase text-gold">
-              The Pride of the North
-            </p>
+        <section id="events" className="section-pad bg-[#2b241d] text-white">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[1.05fr_0.95fr] md:items-center md:px-10">
+            <div className="reveal">
+              <p className="eyebrow text-[#e2c783]">Conference Centre</p>
+              <h2 className="mt-5 font-display text-3xl font-semibold leading-tight md:text-5xl">
+                A quiet place for meetings and retreats.
+              </h2>
+              <span className="gold-rule mt-6 bg-[#e2c783]" />
+              <p className="mt-7 leading-8 text-white/75">
+                Limon Ranch offers a conference centre for meetings, team retreats and focused
+                gatherings, supported by landscaped grounds, comfortable accommodation and direct
+                planning over WhatsApp.
+              </p>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href={wa("Hello Limon Ranch, I'd like to enquire about events or conferences.")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c58a63] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#b1764e]"
+                >
+                  <WhatsAppIcon className="h-4 w-4" /> Enquire Now
+                </a>
+                <a
+                  href="#gallery"
+                  className="inline-flex h-12 items-center justify-center rounded-md border border-white/40 px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:border-[#e2c783] hover:text-[#e2c783]"
+                >
+                  View Gallery
+                </a>
+              </div>
+            </div>
+            <div className="reveal grid gap-4 sm:grid-cols-2" style={{ transitionDelay: "120ms" }}>
+              <img
+                src={events}
+                alt="Limon Ranch event hall"
+                loading="lazy"
+                className="h-72 w-full object-cover sm:translate-y-8"
+              />
+              <img
+                src={conference}
+                alt="Limon Ranch conference setup"
+                loading="lazy"
+                className="h-72 w-full object-cover"
+              />
+            </div>
           </div>
+        </section>
 
-          <div className="flex items-center gap-5">
-            <Social href={FB_URL} label="Facebook">
-              <Facebook className="h-4 w-4" />
-            </Social>
-            <Social href={IG_URL} label="Instagram">
-              <Instagram className="h-4 w-4" />
-            </Social>
-            <Social href={TIKTOK_URL} label="TikTok">
-              <TikTokIcon />
-            </Social>
+        <section className="section-pad bg-[#f7f1e8]">
+          <div className="mx-auto max-w-7xl px-5 md:px-10">
+            <div className="reveal grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-start">
+              <div>
+                <p className="eyebrow">Why Guests Choose Limon Ranch</p>
+                <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-5xl">
+                  A peaceful setting with practical comforts.
+                </h2>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {trustPoints.map((point) => (
+                  <div
+                    key={point}
+                    className="flex gap-3 border-b border-[#d7cbbb] pb-4 text-[#5f5243]"
+                  >
+                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#b1764e]" />
+                    <span className="leading-7">{point}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
+        </section>
 
-          <p className="text-xs text-foreground/50 tracking-wide">
-            © {new Date().getFullYear()} Limon Ranch. All rights reserved.
-          </p>
-        </div>
-      </footer>
+        <section
+          className="relative min-h-[540px] overflow-hidden bg-[#241f19]"
+          aria-label="Limon Ranch landscaped retreat feature"
+        >
+          <img
+            src={cottageGarden}
+            alt="Limon Ranch landscaped grounds"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/20" />
+          <div className="relative z-10 mx-auto flex min-h-[540px] max-w-7xl items-end px-5 py-16 md:px-10">
+            <div className="reveal max-w-2xl text-white">
+              <p className="eyebrow text-[#e2c783]">Now Welcoming Guests</p>
+              <h2 className="mt-5 font-display text-3xl font-semibold leading-tight md:text-5xl">
+                Your space to breathe, focus and feel at home.
+              </h2>
+              <p className="mt-6 leading-8 text-white/78">
+                Whether you&apos;re here to relax, reconnect or plan something meaningful, Limon
+                Ranch is your space to breathe, focus and feel at home.
+              </p>
+              <a
+                href={wa("Hello Limon Ranch, I'd like to ask availability for a stay or retreat.")}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c58a63] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#b1764e]"
+              >
+                <WhatsAppIcon className="h-4 w-4" /> Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="gallery" className="section-pad bg-background">
+          <SectionIntro
+            eyebrow="Gallery"
+            title="A look around Limon Ranch."
+            copy="Landscaped grounds, comfortable accommodation, restaurant moments, gathering spaces and the conference centre at Limon Ranch."
+          />
+
+          <div className="reveal mx-auto mt-14 grid max-w-7xl grid-cols-2 gap-3 px-5 [grid-auto-rows:150px] md:grid-cols-4 md:px-10 md:[grid-auto-rows:220px]">
+            <GalleryItem
+              src={cottages}
+              alt="Limon Ranch cottages"
+              className="col-span-2 row-span-2"
+            />
+            <GalleryItem src={room2} alt="Limon Ranch room with four-poster bed" />
+            <GalleryItem src={campingGround} alt="Limon Ranch outdoor grounds" />
+            <GalleryItem
+              src={foodPlatter}
+              alt="Restaurant platter at Limon Ranch"
+              className="col-span-2"
+            />
+            <GalleryItem src={eventsHall2} alt="Event hall at Limon Ranch" />
+            <GalleryItem src={bar} alt="Limon Ranch bar" />
+            <GalleryItem src={warriors} alt="Local character around Limon Ranch" />
+            <GalleryItem src={reteti} alt="Green outdoor surroundings near Limon Ranch" />
+            <GalleryItem
+              src={giraffes}
+              alt="Open-country view near Limon Ranch"
+              className="col-span-2"
+            />
+            <GalleryItem src={patio} alt="Outdoor patio dining at Limon Ranch" />
+            <GalleryItem src={lounge} alt="Limon Ranch lounge" />
+            <GalleryItem src={buffet} alt="Buffet setup at Limon Ranch" className="col-span-2" />
+            <GalleryItem src={gamesLounge} alt="Games lounge at Limon Ranch" />
+            <GalleryItem src={chickenCurry} alt="Chicken curry at Limon Ranch" />
+            <GalleryItem src={chickenFries} alt="Chicken and fries at Limon Ranch" />
+            <GalleryItem src={milkshake} alt="Milkshake at Limon Ranch" />
+            <GalleryItem
+              src={conferenceExterior}
+              alt="Conference exterior at Limon Ranch"
+              className="col-span-2"
+            />
+            <GalleryItem src={wildlife} alt="Quiet natural surroundings near Limon Ranch" />
+            <GalleryItem src={playground} alt="Outdoor family space at Limon Ranch" />
+          </div>
+        </section>
+
+        <section className="bg-[#efe5d6] px-5 py-20 md:px-10">
+          <div className="mx-auto max-w-5xl">
+            <div className="reveal grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  quote:
+                    "Beautiful landscaped grounds and a quiet setting for rest and connection.",
+                  name: "Landscaped grounds",
+                },
+                {
+                  quote: "A practical choice for comfortable stays, meetings and team retreats.",
+                  name: "Meetings and retreats",
+                },
+                {
+                  quote:
+                    "A peaceful Maralal retreat for relaxing, reconnecting and feeling at home.",
+                  name: "Private getaways",
+                },
+              ].map((item) => (
+                <figure key={item.name} className="bg-[#fbf7ef] p-8">
+                  <Quote className="h-7 w-7 text-[#b1764e]" />
+                  <blockquote className="mt-5 font-display text-xl leading-8 text-[#3a3026]">
+                    "{item.quote}"
+                  </blockquote>
+                  <figcaption className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#8c7155]">
+                    {item.name}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="section-pad bg-background">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[0.9fr_1.1fr] md:px-10">
+            <div className="reveal">
+              <p className="eyebrow">Contact</p>
+              <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-5xl">
+                Ask availability directly.
+              </h2>
+              <p className="mt-7 leading-8 text-[#625545]">
+                For accommodation, private getaways, meetings, conferences and team retreats,
+                WhatsApp is the clearest way to reach the Limon Ranch team.
+              </p>
+              <div className="mt-8 space-y-4 text-[#514637]">
+                <ContactLine icon={MessageCircle} label="WhatsApp" value={DISPLAY_PHONE} />
+                <ContactLine icon={MapPin} label="Location" value={MAP_LOCATION} />
+              </div>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href={wa("Hello Limon Ranch, I'd like to plan a visit.")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c58a63] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#b1764e]"
+                >
+                  <WhatsAppIcon className="h-4 w-4" /> Chat on WhatsApp
+                </a>
+                <a
+                  href={MAP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-[#bba98f] px-5 text-xs font-bold uppercase tracking-[0.18em] text-[#5a4c3d] transition-colors hover:border-[#b1764e] hover:text-[#b1764e]"
+                >
+                  <MapPin className="h-4 w-4" /> Get Directions
+                </a>
+                <Social href={FB_URL} label="Facebook">
+                  <Facebook className="h-4 w-4" />
+                </Social>
+                <Social href={IG_URL} label="Instagram">
+                  <Instagram className="h-4 w-4" />
+                </Social>
+                <Social href={TIKTOK_URL} label="TikTok">
+                  <TikTokIcon />
+                </Social>
+              </div>
+            </div>
+
+            <div
+              className="reveal bg-[#2b241d] p-7 text-white md:p-10"
+              style={{ transitionDelay: "120ms" }}
+            >
+              <div className="flex h-full min-h-[380px] flex-col justify-between border border-white/15 p-7">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e2c783]">
+                    Google Maps
+                  </p>
+                  <h3 className="mt-5 font-display text-3xl font-semibold">{MAP_PLUS_CODE}</h3>
+                  <p className="mt-5 leading-8 text-white/72">
+                    Use this plus code as the Limon Ranch map reference for directions to Lpartuk,
+                    near Maralal in Samburu County, Kenya.
+                  </p>
+                </div>
+                <a
+                  href={MAP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md border border-white/50 px-5 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:border-[#e2c783] hover:text-[#e2c783]"
+                >
+                  <MapPin className="h-4 w-4" /> View on Google Maps
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <FloatingActions />
+      <Footer />
     </div>
+  );
+}
+
+function SectionIntro({ eyebrow, title, copy }: { eyebrow: string; title: string; copy: string }) {
+  return (
+    <div className="reveal mx-auto max-w-3xl px-5 text-center md:px-10">
+      <p className="eyebrow">{eyebrow}</p>
+      <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-5xl">
+        {title}
+      </h2>
+      <span className="gold-rule mt-6" />
+      <p className="mx-auto mt-7 max-w-2xl leading-8 text-[#625545]">{copy}</p>
+    </div>
+  );
+}
+
+function ImageCard({
+  title,
+  img,
+  icon: Icon,
+  copy,
+  delay,
+}: {
+  title: string;
+  img: string;
+  icon: typeof BedDouble;
+  copy: string;
+  delay: number;
+}) {
+  return (
+    <article
+      className="reveal group bg-[#fbf7ef] shadow-sm"
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="relative h-80 overflow-hidden">
+        <img
+          src={img}
+          alt={title}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute left-0 top-8 bg-[#2b241d] px-6 py-4 text-white">
+          <Icon className="h-5 w-5" />
+        </div>
+      </div>
+      <div className="p-7">
+        <h3 className="font-display text-2xl font-semibold text-[#332b22]">{title}</h3>
+        <p className="mt-4 text-sm leading-7 text-[#625545]">{copy}</p>
+      </div>
+    </article>
+  );
+}
+
+function ExperienceCard({
+  title,
+  img,
+  icon: Icon,
+  copy,
+  delay,
+}: {
+  title: string;
+  img: string;
+  icon: typeof Compass;
+  copy: string;
+  delay: number;
+}) {
+  return (
+    <article
+      className="reveal group overflow-hidden bg-[#fbf7ef]"
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="relative h-64 overflow-hidden">
+        <img
+          src={img}
+          alt={title}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+        <div className="absolute bottom-5 left-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#c58a63] text-white">
+          <Icon className="h-5 w-5" />
+        </div>
+      </div>
+      <div className="p-7">
+        <h3 className="font-display text-2xl font-semibold text-[#332b22]">{title}</h3>
+        <p className="mt-4 text-sm leading-7 text-[#625545]">{copy}</p>
+      </div>
+    </article>
   );
 }
 
@@ -627,15 +790,67 @@ function GalleryItem({
   className?: string;
 }) {
   return (
-    <div className={`relative overflow-hidden group ${className}`}>
+    <div className={`relative overflow-hidden bg-[#e9decd] ${className}`}>
       <img
         src={src}
         alt={alt}
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-105"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
       />
-      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
     </div>
+  );
+}
+
+function ContactLine({
+  icon: Icon,
+  label,
+  value,
+}: {
+  icon: typeof MessageCircle;
+  label: string;
+  value: string;
+}) {
+  return (
+    <div className="flex gap-3">
+      <Icon className="mt-1 h-5 w-5 shrink-0 text-[#b1764e]" />
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8c7155]">{label}</p>
+        <p className="mt-1 font-medium">{value}</p>
+      </div>
+    </div>
+  );
+}
+
+function FloatingActions() {
+  return (
+    <div className="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-2 md:bottom-8 md:right-6">
+      <a
+        href={wa("Hello Limon Ranch, I'd like to check availability.")}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1fa855] text-white shadow-lg ring-2 ring-white/90 transition-transform hover:-translate-y-0.5 hover:bg-[#168a46]"
+      >
+        <WhatsAppIcon className="h-6 w-6" />
+      </a>
+      <a
+        href={wa("Hello Limon Ranch, I'd like to speak with the team.")}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Contact Limon Ranch"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#8c7155] text-white shadow-lg transition-transform hover:-translate-y-0.5"
+      >
+        <Phone className="h-5 w-5" />
+      </a>
+    </div>
+  );
+}
+
+function WhatsAppIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M16.02 3.2A12.72 12.72 0 0 0 5.1 22.45L3.7 28.8l6.5-1.52a12.72 12.72 0 1 0 5.82-24.08Zm0 22.92a10.1 10.1 0 0 1-5.18-1.43l-.37-.22-3.84.9.82-3.75-.24-.39a10.12 10.12 0 1 1 8.81 4.89Zm5.55-7.58c-.3-.15-1.8-.89-2.08-.99-.28-.1-.48-.15-.68.15-.2.3-.78.99-.96 1.19-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.68-1.64-.93-2.25-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.07 2.87 1.22 3.06.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.8-.73 2.05-1.44.25-.71.25-1.31.18-1.44-.08-.13-.28-.2-.58-.35Z" />
+    </svg>
   );
 }
 
@@ -654,21 +869,118 @@ function Social({
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-border hover:border-gold hover:text-gold text-foreground/80 transition-colors"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#bba98f] text-[#5a4c3d] transition-colors hover:border-[#b1764e] hover:text-[#b1764e]"
     >
       {children}
     </a>
   );
 }
 
+function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="bg-[#2b241d] px-5 pb-10 pt-14 text-white md:px-10">
+      <div className="mx-auto grid max-w-7xl gap-10 border-b border-white/15 pb-10 md:grid-cols-[1.2fr_0.8fr_1fr_1fr_0.7fr]">
+        <div>
+          <img
+            src={footerLogo}
+            alt="Limon Ranch"
+            className="h-20 w-auto max-w-[230px] object-contain"
+            loading="lazy"
+            width={230}
+            height={165}
+          />
+          <p className="mt-5 max-w-xs text-sm leading-7 text-white/65">
+            A peaceful retreat in Maralal for comfortable stays, meetings, team retreats and private
+            getaways.
+          </p>
+        </div>
+        <FooterColumn
+          title="Stay"
+          links={[
+            ["Cottages / Rooms", "#accommodation"],
+            ["Camping Grounds", "#accommodation"],
+            ["Family & Group Stays", "#accommodation"],
+            ["Event Accommodation", "#events"],
+          ]}
+        />
+        <FooterColumn
+          title="Gather"
+          links={[
+            ["Landscaped Grounds", "#experiences"],
+            ["Meetings & Retreats", "#events"],
+            ["Restaurant & Bar", "#restaurant"],
+            ["Conference Centre", "#events"],
+          ]}
+        />
+        <FooterColumn
+          title="Contact"
+          links={[
+            ["WhatsApp", wa("Hello Limon Ranch, I'd like to enquire.")],
+            ["Google Maps", MAP_URL],
+            ["Facebook", FB_URL],
+            ["Instagram", IG_URL],
+            ["TikTok", TIKTOK_URL],
+          ]}
+          external
+        />
+        <FooterColumn
+          title="Legal"
+          links={[
+            ["Privacy", "#contact"],
+            ["Terms", "#contact"],
+          ]}
+        />
+      </div>
+      <div className="mx-auto mt-8 flex max-w-7xl flex-col gap-4 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
+        <p>Copyright {year} Limon Ranch. All rights reserved.</p>
+        <p>Maralal, Samburu County, Kenya | Direct WhatsApp booking: {DISPLAY_PHONE}</p>
+        <a
+          href={EWASO_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="transition-colors hover:text-white/80"
+        >
+          Website by Ewaso Digital
+        </a>
+      </div>
+    </footer>
+  );
+}
+
+function FooterColumn({
+  title,
+  links,
+  external = false,
+}: {
+  title: string;
+  links: [string, string][];
+  external?: boolean;
+}) {
+  return (
+    <div>
+      <h3 className="font-display text-xl font-semibold text-[#e2c783]">{title}</h3>
+      <ul className="mt-5 space-y-3 text-sm text-white/68">
+        {links.map(([label, href]) => (
+          <li key={label}>
+            <a
+              href={href}
+              target={external || href.startsWith("https://") ? "_blank" : undefined}
+              rel={external || href.startsWith("https://") ? "noreferrer" : undefined}
+              className="transition-colors hover:text-white"
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function TikTokIcon() {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="h-4 w-4"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.83a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-1.26Z" />
     </svg>
   );
