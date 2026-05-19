@@ -51,52 +51,6 @@ import sugutaValley from "@/assets/suguta-valley-view.jpg";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      {
-        title: "Limon Ranch | Maralal Retreat, Stays, Meetings & Private Getaways",
-      },
-      {
-        name: "description",
-        content:
-          "Limon Ranch is a peaceful retreat in Maralal offering landscaped grounds, comfortable stays, meetings, private getaways and retreat space in Samburu County, Kenya.",
-      },
-      {
-        property: "og:title",
-        content: "Limon Ranch | Maralal Retreat, Stays, Meetings & Private Getaways",
-      },
-      {
-        property: "og:description",
-        content:
-          "Limon Ranch is a peaceful retreat in Maralal offering landscaped grounds, comfortable stays, meetings, private getaways and retreat space in Samburu County, Kenya.",
-      },
-      { property: "og:image", content: hero },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      {
-        name: "twitter:title",
-        content: "Limon Ranch | Maralal Retreat, Stays, Meetings & Private Getaways",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "Limon Ranch is a peaceful retreat in Maralal offering landscaped grounds, comfortable stays, meetings, private getaways and retreat space in Samburu County, Kenya.",
-      },
-      { name: "twitter:image", content: hero },
-    ],
-    links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap",
-      },
-    ],
-  }),
   component: Home,
 });
 
@@ -388,8 +342,7 @@ function Home() {
             height={1280}
             fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/38 to-black/18" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/62" />
+          <div className="absolute inset-0 bg-black/52" />
           <div className="relative z-10 mx-auto flex min-h-[calc(88svh-5rem)] max-w-7xl items-end px-5 pb-16 pt-20 md:min-h-[calc(88svh-6rem)] md:px-10 md:pb-20">
             <div className="reveal max-w-3xl text-white">
               <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.02] text-white sm:text-5xl md:text-7xl">
@@ -666,7 +619,7 @@ function Home() {
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/20" />
+          <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 mx-auto flex min-h-[540px] max-w-7xl items-end px-5 py-16 md:px-10">
             <div className="reveal max-w-2xl text-white">
               <p className="eyebrow text-[#e2c783]">Now Welcoming Guests</p>
@@ -883,7 +836,6 @@ function ExperienceCard({
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         <div className="absolute bottom-5 left-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#c58a63] text-white">
           <Icon className="h-5 w-5" />
         </div>
@@ -1066,28 +1018,29 @@ function Footer() {
             ["TikTok (coming soon)", TIKTOK_URL],
           ]}
         />
-        <div className="rounded-sm border border-white/10 bg-white/[0.04] p-5">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
+            Website by
+          </p>
           <a
             href={EWASO_URL}
             target="_blank"
             rel="noreferrer"
-            className="block transition-opacity hover:opacity-90"
+            className="mt-4 inline-flex items-center gap-3 transition-opacity hover:opacity-85"
             aria-label="Website by Ewaso Digital"
           >
-            <span className="font-display text-xl font-semibold text-[#e2c783]">
-              Website by Ewaso Digital
-            </span>
             <img
               src={ewasoLogo}
               alt="Ewaso Digital"
-              className="mt-5 h-auto w-full max-w-[220px] rounded-sm bg-[#fbf7ef] p-3 object-contain"
+              className="h-12 w-12 rounded-xl object-contain"
               loading="lazy"
-              width={220}
-              height={120}
+              width={48}
+              height={48}
             />
+            <span className="font-display text-xl font-semibold text-[#e2c783]">Ewaso Digital</span>
           </a>
-          <p className="mt-4 text-xs leading-6 text-white/52">
-            Digital presence and marketing support for Limon Ranch.
+          <p className="mt-4 max-w-[14rem] text-xs leading-6 text-white/52">
+            Digital presence and marketing support.
           </p>
         </div>
       </div>

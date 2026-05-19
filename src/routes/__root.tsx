@@ -9,11 +9,12 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import hero from "@/assets/hero.jpg";
+import hero from "@/assets/property-exterior.jpg";
 
-const SITE_TITLE = "Limon Ranch | Maralal Retreat, Stays, Meetings & Private Getaways";
+const SITE_TITLE = "Limon Ranch Retreat, Maralal | Stays, Meetings & Private Getaways";
 const SITE_DESCRIPTION =
-  "Limon Ranch is a peaceful retreat in Maralal offering landscaped grounds, comfortable stays, meetings, private getaways and retreat space in Samburu County, Kenya.";
+  "Limon Ranch Retreat is a peaceful Maralal retreat offering comfortable stays, landscaped grounds, meetings, conferences, private getaways and regional Northern Kenya experiences.";
+const CANONICAL_URL = "https://limonranch.example.com/";
 
 function NotFoundComponent() {
   return (
@@ -82,6 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: SITE_TITLE },
       { property: "og:description", content: SITE_DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: CANONICAL_URL },
       { property: "og:image", content: hero },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: SITE_TITLE },
@@ -89,10 +91,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: hero },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
       {
         rel: "stylesheet",
         href: appCss,
       },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap",
+      },
+      { rel: "canonical", href: CANONICAL_URL },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
   }),
   shellComponent: RootShell,
