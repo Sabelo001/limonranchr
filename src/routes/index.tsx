@@ -43,7 +43,6 @@ import eventsHall from "@/assets/events-hall.jpg";
 import eventsHall2 from "@/assets/events-hall-2.jpg";
 import buffet from "@/assets/buffet.jpg";
 import milkshake from "@/assets/milkshake.jpg";
-import chickenFries from "@/assets/chicken-fries.jpg";
 import chickenCurry from "@/assets/chicken-curry.jpg";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -101,13 +100,12 @@ const WHATSAPP = "254722207384";
 const DISPLAY_PHONE = "+254 722 207 384";
 const FB_URL = "https://www.facebook.com/profile.php?id=100070965084168";
 const IG_URL = "https://instagram.com/limon_ranch";
-const TIKTOK_URL = "https://tiktok.com/@limonranch";
+const TIKTOK_URL = "#contact";
 const MAP_PLUS_CODE = "3MPH+GQM, Lpartuk";
-const MAP_LOCATION = `${MAP_PLUS_CODE} · Maralal / Samburu County, Kenya`;
-const MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  MAP_PLUS_CODE,
-)}`;
+const MAP_LOCATION = `${MAP_PLUS_CODE} - Maralal / Samburu County, Kenya`;
+const MAP_URL = "https://maps.app.goo.gl/4Xm9Qb9EWECueuds5";
 const EWASO_URL = "https://ewasodigital.co.ke";
+const GOOGLE_REVIEWS_URL = "https://share.google/r7q9bAdSS66KR0NwQ";
 
 const wa = (msg: string) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
@@ -180,10 +178,29 @@ const experiences = [
     copy: "Enjoy outdoor space, fresh air and unhurried time around the landscaped ranch grounds.",
   },
   {
-    title: "Samburu / Northern Kenya Experiences",
+    title: "Planned Northern Kenya Excursions",
     img: atmosphericHero,
     icon: Compass,
-    copy: "Use Limon Ranch as a calm Maralal base while planning gentle local and Northern Kenya experiences.",
+    copy: "Discuss wildlife and regional excursions with the team so travel time, transport and budget are planned honestly in advance.",
+  },
+];
+
+const northernExperiences = [
+  {
+    title: "Maralal International Camel Derby",
+    copy: "A major Maralal event and seasonal attraction for guests who want to plan a stay around the town's best-known calendar moment.",
+  },
+  {
+    title: "Lake Turkana Cultural Festival",
+    copy: "An extended Northern Kenya cultural experience that requires advance itinerary planning rather than a casual nearby outing.",
+  },
+  {
+    title: "Gateway to Suguta Valley",
+    copy: "A remote Northern Kenya adventure route for experienced, well-planned excursions with suitable transport and local guidance.",
+  },
+  {
+    title: "Samburu National Reserve",
+    copy: "A possible planned excursion where suitable travel arrangements are discussed in advance; it is not positioned as an on-site activity.",
   },
 ];
 
@@ -193,6 +210,73 @@ const trustPoints = [
   "Conference centre for meetings and retreats",
   "Quiet setting for rest and connection",
   "Ideal for getaways, team retreats and private stays",
+];
+
+const galleryGroups = [
+  {
+    title: "Property & Grounds",
+    copy: "Landscaped paths, gardens and the calm Maralal retreat setting.",
+    items: [
+      { src: hero, alt: "Limon Ranch exterior and landscaped grounds", className: "col-span-2" },
+      { src: cottageGarden, alt: "Landscaped gardens at Limon Ranch" },
+      { src: reteti, alt: "Green surroundings near Limon Ranch" },
+    ],
+  },
+  {
+    title: "Rooms & Accommodation",
+    copy: "Comfortable rooms, cottages and relaxed spaces for private stays.",
+    items: [
+      { src: room1, alt: "Limon Ranch room" },
+      { src: room2, alt: "Limon Ranch room with four-poster bed" },
+      { src: cottages, alt: "Limon Ranch cottages", className: "col-span-2" },
+      { src: lounge, alt: "Limon Ranch lounge" },
+    ],
+  },
+  {
+    title: "Food & Restaurant",
+    copy: "Meals, drinks and restaurant moments for guests and groups.",
+    items: [
+      { src: foodPlatter, alt: "Restaurant platter at Limon Ranch", className: "col-span-2" },
+      { src: buffet, alt: "Buffet setup at Limon Ranch" },
+      { src: bar, alt: "Limon Ranch bar" },
+      { src: chickenCurry, alt: "Chicken curry at Limon Ranch" },
+      { src: milkshake, alt: "Milkshake at Limon Ranch" },
+    ],
+  },
+  {
+    title: "Events & Conference",
+    copy: "Conference centre, event hall and practical gathering spaces.",
+    items: [
+      { src: conference, alt: "Limon Ranch conference setup", className: "col-span-2" },
+      { src: conferenceExterior, alt: "Limon Ranch conference centre exterior" },
+      { src: eventsHall, alt: "Event hall at Limon Ranch" },
+      { src: eventsHall2, alt: "Event seating at Limon Ranch" },
+    ],
+  },
+  {
+    title: "Wildlife & Northern Kenya",
+    copy: "Regional scenery and Northern Kenya inspiration for planned excursions.",
+    items: [
+      { src: wildlife, alt: "Wildlife seen on wider Northern Kenya routes" },
+      {
+        src: giraffes,
+        alt: "Open-country wildlife scene in Northern Kenya",
+        className: "col-span-2",
+      },
+      { src: atmosphericHero, alt: "Northern Kenya landscape inspiration" },
+      { src: warriors, alt: "Samburu cultural moment in Northern Kenya" },
+    ],
+  },
+  {
+    title: "Guest Moments / Outdoor Leisure",
+    copy: "Outdoor areas and relaxed spaces for families, groups and retreats.",
+    items: [
+      { src: campingGround, alt: "Outdoor grounds at Limon Ranch", className: "col-span-2" },
+      { src: playground, alt: "Outdoor family space at Limon Ranch" },
+      { src: gamesLounge, alt: "Games lounge at Limon Ranch" },
+      { src: patio, alt: "Outdoor patio dining at Limon Ranch" },
+    ],
+  },
 ];
 
 function Home() {
@@ -395,6 +479,42 @@ function Home() {
               <WhatsAppIcon className="h-4 w-4" /> Plan a Visit
             </a>
           </div>
+
+          <div className="reveal mx-auto mt-20 max-w-7xl px-5 md:px-10">
+            <div className="grid gap-8 border-t border-[#d5c8b7] pt-12 md:grid-cols-[0.9fr_1.1fr] md:items-start">
+              <div>
+                <p className="eyebrow">Northern Kenya Experiences</p>
+                <h3 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-4xl">
+                  Plan regional experiences with clear travel expectations.
+                </h3>
+              </div>
+              <div className="space-y-5 text-sm leading-8 text-[#625545] md:text-base">
+                <p>
+                  From Maralal&apos;s camel derby season to extended Northern Kenya routes toward
+                  Lake Turkana, Suguta Valley and Samburu National Reserve, Limon Ranch offers a
+                  calm base for guests planning meaningful regional experiences. Speak with the team
+                  about what is practical for your dates, transport and itinerary.
+                </p>
+                <p>
+                  Wildlife and Northern Kenya excursions can be discussed with the Limon Ranch team,
+                  including Samburu National Reserve visits where suitable travel arrangements are
+                  planned in advance. Some guest-specific travel arrangements may involve private
+                  transport or flying arrangements, depending on itinerary and budget.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {northernExperiences.map((item) => (
+                <article key={item.title} className="border border-[#d5c8b7] bg-[#fbf7ef] p-6">
+                  <h4 className="font-display text-2xl font-semibold text-[#332b22]">
+                    {item.title}
+                  </h4>
+                  <p className="mt-4 text-sm leading-7 text-[#625545]">{item.copy}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section id="restaurant" className="section-pad bg-background">
@@ -538,77 +658,38 @@ function Home() {
           <SectionIntro
             eyebrow="Gallery"
             title="A look around Limon Ranch."
-            copy="Landscaped grounds, comfortable accommodation, restaurant moments, gathering spaces and the conference centre at Limon Ranch."
+            copy="Browse the property in clear groups: grounds, rooms, restaurant moments, event spaces, regional inspiration and outdoor leisure."
           />
 
-          <div className="reveal mx-auto mt-14 grid max-w-7xl grid-cols-2 gap-3 px-5 [grid-auto-rows:150px] md:grid-cols-4 md:px-10 md:[grid-auto-rows:220px]">
-            <GalleryItem
-              src={cottages}
-              alt="Limon Ranch cottages"
-              className="col-span-2 row-span-2"
-            />
-            <GalleryItem src={room2} alt="Limon Ranch room with four-poster bed" />
-            <GalleryItem src={campingGround} alt="Limon Ranch outdoor grounds" />
-            <GalleryItem
-              src={foodPlatter}
-              alt="Restaurant platter at Limon Ranch"
-              className="col-span-2"
-            />
-            <GalleryItem src={eventsHall2} alt="Event hall at Limon Ranch" />
-            <GalleryItem src={bar} alt="Limon Ranch bar" />
-            <GalleryItem src={warriors} alt="Local character around Limon Ranch" />
-            <GalleryItem src={reteti} alt="Green outdoor surroundings near Limon Ranch" />
-            <GalleryItem
-              src={giraffes}
-              alt="Open-country view near Limon Ranch"
-              className="col-span-2"
-            />
-            <GalleryItem src={patio} alt="Outdoor patio dining at Limon Ranch" />
-            <GalleryItem src={lounge} alt="Limon Ranch lounge" />
-            <GalleryItem src={buffet} alt="Buffet setup at Limon Ranch" className="col-span-2" />
-            <GalleryItem src={gamesLounge} alt="Games lounge at Limon Ranch" />
-            <GalleryItem src={chickenCurry} alt="Chicken curry at Limon Ranch" />
-            <GalleryItem src={chickenFries} alt="Chicken and fries at Limon Ranch" />
-            <GalleryItem src={milkshake} alt="Milkshake at Limon Ranch" />
-            <GalleryItem
-              src={conferenceExterior}
-              alt="Conference exterior at Limon Ranch"
-              className="col-span-2"
-            />
-            <GalleryItem src={wildlife} alt="Quiet natural surroundings near Limon Ranch" />
-            <GalleryItem src={playground} alt="Outdoor family space at Limon Ranch" />
+          <div className="mx-auto mt-14 grid max-w-7xl gap-12 px-5 md:px-10">
+            {galleryGroups.map((group) => (
+              <GalleryGroup key={group.title} {...group} />
+            ))}
           </div>
         </section>
 
         <section className="bg-[#efe5d6] px-5 py-20 md:px-10">
-          <div className="mx-auto max-w-5xl">
-            <div className="reveal grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  quote:
-                    "Beautiful landscaped grounds and a quiet setting for rest and connection.",
-                  name: "Landscaped grounds",
-                },
-                {
-                  quote: "A practical choice for comfortable stays, meetings and team retreats.",
-                  name: "Meetings and retreats",
-                },
-                {
-                  quote:
-                    "A peaceful Maralal retreat for relaxing, reconnecting and feeling at home.",
-                  name: "Private getaways",
-                },
-              ].map((item) => (
-                <figure key={item.name} className="bg-[#fbf7ef] p-8">
-                  <Quote className="h-7 w-7 text-[#b1764e]" />
-                  <blockquote className="mt-5 font-display text-xl leading-8 text-[#3a3026]">
-                    "{item.quote}"
-                  </blockquote>
-                  <figcaption className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#8c7155]">
-                    {item.name}
-                  </figcaption>
-                </figure>
-              ))}
+          <div className="reveal mx-auto grid max-w-5xl gap-8 bg-[#fbf7ef] p-8 md:grid-cols-[0.8fr_1.2fr] md:p-10">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#c58a63] text-white">
+              <Quote className="h-6 w-6" />
+            </div>
+            <div>
+              <p className="eyebrow">Guest Feedback</p>
+              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-4xl">
+                Read our Google Reviews
+              </h2>
+              <p className="mt-5 leading-8 text-[#625545]">
+                See what guests are saying about Limon Ranch on Google. No review excerpts, ratings
+                or reviewer names are shown here, so the site stays accurate and easy to verify.
+              </p>
+              <a
+                href={GOOGLE_REVIEWS_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-7 inline-flex h-12 items-center justify-center rounded-md border border-[#bba98f] px-6 text-xs font-bold uppercase tracking-[0.18em] text-[#5a4c3d] transition-colors hover:border-[#b1764e] hover:text-[#b1764e]"
+              >
+                Read our Google Reviews
+              </a>
             </div>
           </div>
         </section>
@@ -651,7 +732,7 @@ function Home() {
                 <Social href={IG_URL} label="Instagram">
                   <Instagram className="h-4 w-4" />
                 </Social>
-                <Social href={TIKTOK_URL} label="TikTok">
+                <Social href={TIKTOK_URL} label="TikTok coming soon">
                   <TikTokIcon />
                 </Social>
               </div>
@@ -777,6 +858,32 @@ function ExperienceCard({
         <p className="mt-4 text-sm leading-7 text-[#625545]">{copy}</p>
       </div>
     </article>
+  );
+}
+
+function GalleryGroup({
+  title,
+  copy,
+  items,
+}: {
+  title: string;
+  copy: string;
+  items: { src: string; alt: string; className?: string }[];
+}) {
+  return (
+    <section className="reveal">
+      <div className="mb-5 flex flex-col gap-2 border-b border-[#d7cbbb] pb-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h3 className="font-display text-2xl font-semibold text-[#332b22]">{title}</h3>
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-[#625545]">{copy}</p>
+        </div>
+      </div>
+      <div className="grid grid-cols-2 gap-3 [grid-auto-rows:150px] md:grid-cols-4 md:[grid-auto-rows:220px]">
+        {items.map((item) => (
+          <GalleryItem key={`${title}-${item.alt}`} {...item} />
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -920,9 +1027,8 @@ function Footer() {
             ["Google Maps", MAP_URL],
             ["Facebook", FB_URL],
             ["Instagram", IG_URL],
-            ["TikTok", TIKTOK_URL],
+            ["TikTok (coming soon)", TIKTOK_URL],
           ]}
-          external
         />
         <FooterColumn
           title="Legal"
