@@ -19,10 +19,9 @@ import {
 } from "lucide-react";
 import logo from "@/assets/logo-clean.png";
 import footerLogo from "@/assets/logo-footer.png";
+import ewasoLogo from "@/assets/ewaso-digital-logo.png";
 import hero from "@/assets/property-exterior.jpg";
 import atmosphericHero from "@/assets/hero.jpg";
-import wildlife from "@/assets/wildlife.jpg";
-import giraffes from "@/assets/giraffes.jpg";
 import cottages from "@/assets/cottages.jpg";
 import room1 from "@/assets/room-1.jpg";
 import room2 from "@/assets/room-2.jpg";
@@ -31,7 +30,6 @@ import events from "@/assets/events.jpg";
 import conference from "@/assets/conference.jpg";
 import cottageGarden from "@/assets/cottage-garden.jpg";
 import bar from "@/assets/bar.jpg";
-import warriors from "@/assets/samburu-warriors.avif";
 import campingGround from "@/assets/camping-ground.jpg";
 import playground from "@/assets/playground.jpg";
 import lounge from "@/assets/lounge.jpg";
@@ -46,8 +44,10 @@ import chickenCurry from "@/assets/chicken-curry.jpg";
 import lakeTurkanaFestival from "@/assets/lake-turkana-cultural-festival.jpg";
 import limonGate from "@/assets/limon-ranch-gate.jpg";
 import malasoEscarpment from "@/assets/malaso-escarpment-viewpoint.jpeg";
-import retetiElephants from "@/assets/reteti-elephants.jpg";
+import camelDerby from "@/assets/maralal-camel-derby.jpg";
+import ololokweMountain from "@/assets/ololokwe-mountain.jpg";
 import samburuReserveGate from "@/assets/samburu-national-reserve-gate.jpg";
+import sugutaValley from "@/assets/suguta-valley-view.jpg";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
@@ -112,6 +112,7 @@ const EWASO_URL = "https://ewasodigital.co.ke";
 const GOOGLE_REVIEWS_URL = "https://share.google/r7q9bAdSS66KR0NwQ";
 
 const wa = (msg: string) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+const call = `tel:${DISPLAY_PHONE.replace(/\s/g, "")}`;
 
 const nav = [
   { label: "Home", href: "#top" },
@@ -191,40 +192,42 @@ const experiences = [
 
 const northernExperiences = [
   {
+    title: "Ololokwe Mountain",
+    img: ololokweMountain,
+    distance: "Regional Northern Kenya landmark and scenic reference point.",
+    copy: "A striking Northern Kenya landmark and scenic regional reference point that gives wider Samburu journeys a strong sense of place.",
+  },
+  {
     title: "Maralal International Camel Derby",
-    distance:
-      "Within Maralal / short local drive from Limon Ranch. Confirm exact event venue depending on the year.",
+    img: camelDerby,
+    distance: "Within Maralal / short local drive from Limon Ranch, depending on the event venue.",
     copy: "A major seasonal Maralal event bringing together camel racing, culture, visitors and local energy. Guests staying at Limon Ranch during derby season can use the property as a calm base for rest, meals, meetings or private stays while enjoying the town's best-known annual event.",
   },
   {
     title: "Malaso Escarpment / World's End Viewpoint",
-    distance:
-      "Approx. 25 to 40 km from Maralal, depending on the route and viewpoint used. Treat as a planned half-day or day outing.",
+    img: malasoEscarpment,
+    distance: "Approx. 25 to 40 km from Maralal, depending on the route and viewpoint used.",
     copy: "A dramatic viewpoint overlooking the escarpment and Northern Kenya landscapes. Best planned with local guidance, suitable transport and enough time for road conditions, photography and scenic stops.",
   },
   {
     title: "Suguta Valley View / Gateway Route",
-    distance:
-      "Approx. 40 km or more from Maralal depending on the exact viewpoint or route. Treat as a rugged planned excursion, not a casual nearby stop.",
-    copy: "A remote Northern Kenya adventure route known for wide views, rugged terrain and striking landscapes. This should be positioned as an extended scenic experience requiring advance planning, suitable transport and local guidance.",
+    img: sugutaValley,
+    distance: "Approx. 40 km or more from Maralal depending on the exact route or viewpoint.",
+    copy: "A remote Northern Kenya adventure route known for wide views, rugged terrain and striking landscapes. Best treated as an extended scenic experience requiring advance planning, suitable transport and local guidance.",
   },
   {
     title: "Samburu National Reserve",
+    img: samburuReserveGate,
     distance:
-      "Approx. 150 to 200 km by road from Maralal/Limon Ranch depending on route and gate. Treat as a planned excursion, not a nearby attraction.",
-    copy: "A possible wildlife excursion for guests with suitable travel arrangements planned in advance. Do not treat it as next door to Limon Ranch; guests should discuss timing, road conditions, transport or flight options with the team before planning.",
+      "Approx. 150 to 200 km by road from Maralal / Limon Ranch depending on route and gate.",
+    copy: "A possible wildlife excursion for guests with suitable travel arrangements planned in advance. It is not next door to Limon Ranch, so guests should discuss timing, road conditions, transport or flight options with the team before planning.",
   },
   {
     title: "Lake Turkana Cultural Festival",
+    img: lakeTurkanaFestival,
     distance:
-      "Approx. 250 to 300 km or more by road from Maralal depending on route and road conditions. Treat as an extended Northern Kenya cultural journey, not a nearby day trip.",
-    copy: "A vibrant cultural experience around Lake Turkana / Loiyangalani that celebrates Northern Kenya communities, music, dress, traditions and heritage. Position it as an extended itinerary for guests exploring the wider region, requiring early planning and suitable travel arrangements.",
-  },
-  {
-    title: "Reteti Elephant Sanctuary",
-    distance:
-      "Planned Northern Kenya excursion; confirm travel time, route and access with the team before making firm plans.",
-    copy: "Reteti Elephant Sanctuary is a community-led elephant rescue and rehabilitation project in Northern Kenya. It is best discussed as part of a planned conservation-focused route with suitable transport and timing.",
+      "Approx. 250 to 300 km or more by road from Maralal depending on route and road conditions.",
+    copy: "A vibrant cultural experience around Lake Turkana / Loiyangalani that celebrates Northern Kenya communities, music, dress, traditions and heritage. This is an extended Northern Kenya journey requiring early planning and suitable travel arrangements.",
   },
 ];
 
@@ -276,58 +279,6 @@ const galleryGroups = [
       { src: conferenceExterior, alt: "Limon Ranch conference centre exterior" },
       { src: eventsHall, alt: "Event hall at Limon Ranch" },
       { src: eventsHall2, alt: "Event seating at Limon Ranch" },
-    ],
-  },
-  {
-    title: "Wildlife & Northern Kenya",
-    copy: "Regional scenery and Northern Kenya inspiration for planned excursions.",
-    items: [
-      { src: wildlife, alt: "Wildlife seen on wider Northern Kenya routes" },
-      {
-        src: giraffes,
-        alt: "Open-country wildlife scene in Northern Kenya",
-        className: "col-span-2",
-      },
-      { src: atmosphericHero, alt: "Northern Kenya landscape inspiration" },
-      { src: warriors, alt: "Samburu cultural moment in Northern Kenya" },
-      {
-        src: samburuReserveGate,
-        alt: "Samburu National Reserve gate for planned excursion context",
-        className: "col-span-2",
-      },
-    ],
-  },
-  {
-    title: "Lake Turkana Cultural Festival",
-    copy: "Cultural imagery for the extended Lake Turkana / Loiyangalani journey, shown as regional inspiration rather than an on-site Limon Ranch activity.",
-    items: [
-      {
-        src: lakeTurkanaFestival,
-        alt: "Lake Turkana Cultural Festival regional cultural experience",
-        className: "col-span-2",
-      },
-    ],
-  },
-  {
-    title: "Malaso Escarpment / Viewpoints",
-    copy: "Viewpoint imagery for planned Malaso Escarpment and World's End outings from the Maralal area.",
-    items: [
-      {
-        src: malasoEscarpment,
-        alt: "Malaso Escarpment viewpoint and Northern Kenya landscape",
-        className: "col-span-2",
-      },
-    ],
-  },
-  {
-    title: "Reteti / Conservation",
-    copy: "Conservation-focused Northern Kenya imagery, separated from Limon Ranch property photos.",
-    items: [
-      {
-        src: retetiElephants,
-        alt: "Reteti Elephant Sanctuary conservation experience",
-        className: "col-span-2",
-      },
     ],
   },
   {
@@ -569,17 +520,32 @@ function Home() {
               </div>
             </div>
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {northernExperiences.map((item) => (
-                <article key={item.title} className="border border-[#d5c8b7] bg-[#fbf7ef] p-6">
-                  <h4 className="font-display text-2xl font-semibold text-[#332b22]">
-                    {item.title}
-                  </h4>
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#a5633e]">
-                    Estimated distance
-                  </p>
-                  <p className="mt-2 text-sm leading-7 text-[#625545]">{item.distance}</p>
-                  <p className="mt-4 text-sm leading-7 text-[#625545]">{item.copy}</p>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {northernExperiences.map((item, index) => (
+                <article
+                  key={item.title}
+                  className={`overflow-hidden border border-[#d5c8b7] bg-[#fbf7ef] ${
+                    index === 0 ? "lg:col-span-3" : ""
+                  }`}
+                >
+                  <div className={`relative overflow-hidden ${index === 0 ? "h-80" : "h-56"}`}>
+                    <img
+                      src={item.img}
+                      alt={`${item.title} regional Northern Kenya experience`}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-display text-2xl font-semibold text-[#332b22]">
+                      {item.title}
+                    </h4>
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#a5633e]">
+                      Estimated distance
+                    </p>
+                    <p className="mt-2 text-sm leading-7 text-[#625545]">{item.distance}</p>
+                    <p className="mt-4 text-sm leading-7 text-[#625545]">{item.copy}</p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -795,6 +761,9 @@ function Home() {
                 >
                   <MapPin className="h-4 w-4" /> Get Directions
                 </a>
+                <Social href={wa("Hello Limon Ranch, I'd like to plan a visit.")} label="WhatsApp">
+                  <WhatsAppIcon className="h-4 w-4" />
+                </Social>
                 <Social href={FB_URL} label="Facebook">
                   <Facebook className="h-4 w-4" />
                 </Social>
@@ -807,26 +776,23 @@ function Home() {
               </div>
             </div>
 
-            <div
-              className="reveal bg-[#2b241d] p-7 text-white md:p-10"
-              style={{ transitionDelay: "120ms" }}
-            >
-              <div className="flex h-full min-h-[380px] flex-col justify-between border border-white/15 p-7">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e2c783]">
-                    Google Maps
-                  </p>
-                  <h3 className="mt-5 font-display text-3xl font-semibold">{MAP_PLUS_CODE}</h3>
-                  <p className="mt-5 leading-8 text-white/72">
-                    Use this plus code as the Limon Ranch map reference for directions to Lpartuk,
-                    near Maralal in Samburu County, Kenya.
-                  </p>
-                </div>
+            <div className="reveal" style={{ transitionDelay: "120ms" }}>
+              <div className="border border-[#d8c8b4] bg-[#fbf7ef] p-7 shadow-sm md:p-9">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a5633e]">
+                  Location
+                </p>
+                <h3 className="mt-5 font-display text-3xl font-semibold text-[#332b22]">
+                  {MAP_PLUS_CODE}
+                </h3>
+                <p className="mt-4 leading-8 text-[#625545]">
+                  Use this plus code as the Limon Ranch map reference for directions to Lpartuk,
+                  near Maralal in Samburu County, Kenya.
+                </p>
                 <a
                   href={MAP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md border border-white/50 px-5 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:border-[#e2c783] hover:text-[#e2c783]"
+                  className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#2b241d] px-5 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#5a4c3d]"
                 >
                   <MapPin className="h-4 w-4" /> View on Google Maps
                 </a>
@@ -1014,10 +980,8 @@ function FloatingActions() {
         <WhatsAppIcon className="h-6 w-6" />
       </a>
       <a
-        href={wa("Hello Limon Ranch, I'd like to speak with the team.")}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Contact Limon Ranch"
+        href={call}
+        aria-label="Call Limon Ranch"
         className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#8c7155] text-white shadow-lg transition-transform hover:-translate-y-0.5"
       >
         <Phone className="h-5 w-5" />
@@ -1059,8 +1023,8 @@ function Social({
 function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-[#2b241d] px-5 pb-10 pt-14 text-white md:px-10">
-      <div className="mx-auto grid max-w-7xl gap-10 border-b border-white/15 pb-10 md:grid-cols-[1.2fr_0.8fr_1fr_1fr_0.7fr]">
+    <footer className="bg-[#2b241d] px-5 pb-28 pt-14 text-white md:px-10 md:pb-16">
+      <div className="mx-auto grid max-w-7xl gap-10 border-b border-white/15 pb-10 md:grid-cols-[1.15fr_0.85fr_1fr_0.85fr_1.1fr]">
         <div>
           <img
             src={footerLogo}
@@ -1085,43 +1049,50 @@ function Footer() {
           ]}
         />
         <FooterColumn
-          title="Gather"
+          title="Experiences"
           links={[
             ["Landscaped Grounds", "#experiences"],
             ["Meetings & Retreats", "#events"],
             ["Restaurant & Bar", "#restaurant"],
-            ["Conference Centre", "#events"],
+            ["Northern Kenya Experiences", "#experiences"],
           ]}
         />
         <FooterColumn
-          title="Contact"
+          title="Socials"
           links={[
             ["WhatsApp", wa("Hello Limon Ranch, I'd like to enquire.")],
-            ["Google Maps", MAP_URL],
             ["Facebook", FB_URL],
             ["Instagram", IG_URL],
             ["TikTok (coming soon)", TIKTOK_URL],
           ]}
         />
-        <FooterColumn
-          title="Legal"
-          links={[
-            ["Privacy", "#contact"],
-            ["Terms", "#contact"],
-          ]}
-        />
+        <div className="rounded-sm border border-white/10 bg-white/[0.04] p-5">
+          <a
+            href={EWASO_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="block transition-opacity hover:opacity-90"
+            aria-label="Website by Ewaso Digital"
+          >
+            <span className="font-display text-xl font-semibold text-[#e2c783]">
+              Website by Ewaso Digital
+            </span>
+            <img
+              src={ewasoLogo}
+              alt="Ewaso Digital"
+              className="mt-5 h-auto w-full max-w-[220px] rounded-sm bg-[#fbf7ef] p-3 object-contain"
+              loading="lazy"
+              width={220}
+              height={120}
+            />
+          </a>
+          <p className="mt-4 text-xs leading-6 text-white/52">
+            Digital presence and marketing support for Limon Ranch.
+          </p>
+        </div>
       </div>
-      <div className="mx-auto mt-8 flex max-w-7xl flex-col gap-4 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto mt-8 max-w-7xl text-xs text-white/50">
         <p>Copyright {year} Limon Ranch. All rights reserved.</p>
-        <p>Maralal, Samburu County, Kenya | Direct WhatsApp booking: {DISPLAY_PHONE}</p>
-        <a
-          href={EWASO_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="transition-colors hover:text-white/80"
-        >
-          Website by Ewaso Digital
-        </a>
       </div>
     </footer>
   );
