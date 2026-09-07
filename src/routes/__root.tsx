@@ -1,20 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {
-  Outlet,
-  Link,
-  createRootRouteWithContext,
-  useRouter,
-  HeadContent,
-  Scripts,
-} from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
-import hero from "@/assets/property-exterior.jpg";
-
-const SITE_TITLE = "Limon Ranch Retreat, Maralal | Stays, Meetings & Private Getaways";
-const SITE_DESCRIPTION =
-  "Limon Ranch Retreat is a peaceful Maralal retreat offering comfortable stays, landscaped grounds, meetings, conferences, private getaways and regional Northern Kenya experiences.";
-const CANONICAL_URL = "https://limonranch.example.com/";
+import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/react-router";
 
 function NotFoundComponent() {
   return (
@@ -38,8 +23,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
-  console.error(error);
+function ErrorComponent({ reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
 
   return (
@@ -74,61 +58,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: SITE_TITLE },
-      { name: "description", content: SITE_DESCRIPTION },
-      { property: "og:title", content: SITE_TITLE },
-      { property: "og:description", content: SITE_DESCRIPTION },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: CANONICAL_URL },
-      { property: "og:image", content: hero },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: SITE_TITLE },
-      { name: "twitter:description", content: SITE_DESCRIPTION },
-      { name: "twitter:image", content: hero },
-    ],
-    links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap",
-      },
-      { rel: "canonical", href: CANONICAL_URL },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();

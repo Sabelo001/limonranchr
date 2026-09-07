@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   BedDouble,
   Building2,
@@ -17,36 +17,38 @@ import {
   Users,
   X,
 } from "lucide-react";
-import logo from "@/assets/logo-clean.png";
-import footerLogo from "@/assets/logo-footer.png";
-import ewasoLogo from "@/assets/ewaso-digital-logo.png";
-import hero from "@/assets/property-exterior.jpg";
 import atmosphericHero from "@/assets/hero.jpg";
-import cottages from "@/assets/cottages.jpg";
-import room1 from "@/assets/room-1.jpg";
-import room2 from "@/assets/room-2.jpg";
-import patio from "@/assets/patio.jpg";
+import logo from "@/assets/optimized/logo-clean.webp";
+import footerLogo from "@/assets/optimized/logo-footer.webp";
+import ewasoLogo from "@/assets/optimized/ewaso-digital-logo.webp";
+import hero from "@/assets/property-exterior.jpg";
+import { BookingEnquiry } from "@/components/booking-enquiry";
+import { DISPLAY_PHONE, bookingDraft as wa } from "@/lib/booking";
+import cottages from "@/assets/optimized/cottages.webp";
+import room1 from "@/assets/optimized/room-1.webp";
+import room2 from "@/assets/optimized/room-2.webp";
+import patio from "@/assets/optimized/patio.webp";
 import events from "@/assets/events.jpg";
-import conference from "@/assets/conference.jpg";
-import cottageGarden from "@/assets/cottage-garden.jpg";
-import bar from "@/assets/bar.jpg";
-import campingGround from "@/assets/camping-ground.jpg";
-import playground from "@/assets/playground.jpg";
-import lounge from "@/assets/lounge.jpg";
-import conferenceExterior from "@/assets/conference-exterior.jpg";
-import gamesLounge from "@/assets/games-lounge.jpg";
+import conference from "@/assets/optimized/conference.webp";
+import cottageGarden from "@/assets/optimized/cottage-garden.webp";
+import bar from "@/assets/optimized/bar.webp";
+import campingGround from "@/assets/optimized/camping-ground.webp";
+import playground from "@/assets/optimized/playground.webp";
+import lounge from "@/assets/optimized/lounge.webp";
+import conferenceExterior from "@/assets/optimized/conference-exterior.webp";
+import gamesLounge from "@/assets/optimized/games-lounge.webp";
 import foodPlatter from "@/assets/food-platter.jpg";
 import eventsHall from "@/assets/events-hall.jpg";
 import eventsHall2 from "@/assets/events-hall-2.jpg";
 import buffet from "@/assets/buffet.jpg";
-import milkshake from "@/assets/milkshake.jpg";
+import milkshake from "@/assets/optimized/milkshake.webp";
 import chickenCurry from "@/assets/chicken-curry.jpg";
 import lakeTurkanaFestival from "@/assets/lake-turkana-cultural-festival.jpg";
-import limonGate from "@/assets/limon-ranch-gate.jpg";
-import malasoEscarpment from "@/assets/malaso-escarpment-viewpoint.jpeg";
-import camelDerby from "@/assets/maralal-camel-derby.jpg";
+import limonGate from "@/assets/optimized/limon-ranch-gate.webp";
+import malasoEscarpment from "@/assets/optimized/malaso-escarpment-viewpoint.webp";
+import camelDerby from "@/assets/optimized/maralal-camel-derby.webp";
 import ololokweMountain from "@/assets/ololokwe-mountain.jpg";
-import samburuReserveGate from "@/assets/samburu-national-reserve-gate.jpg";
+import samburuReserveGate from "@/assets/optimized/samburu-national-reserve-gate.webp";
 import sugutaValley from "@/assets/suguta-valley-view.jpg";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -54,18 +56,14 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const WHATSAPP = "254722207384";
-const DISPLAY_PHONE = "+254 722 207 384";
 const FB_URL = "https://www.facebook.com/profile.php?id=100070965084168";
 const IG_URL = "https://instagram.com/limon_ranch";
-const TIKTOK_URL = "#contact";
 const MAP_PLUS_CODE = "3MPH+GQM, Lpartuk";
 const MAP_LOCATION = `${MAP_PLUS_CODE} - Maralal / Samburu County, Kenya`;
 const MAP_URL = "https://maps.app.goo.gl/4Xm9Qb9EWECueuds5";
 const EWASO_URL = "https://ewasodigital.co.ke";
 const GOOGLE_REVIEWS_URL = "https://share.google/r7q9bAdSS66KR0NwQ";
 
-const wa = (msg: string) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 const call = `tel:${DISPLAY_PHONE.replace(/\s/g, "")}`;
 
 const nav = [
@@ -248,6 +246,7 @@ const galleryGroups = [
 
 function Home() {
   useReveal();
+  const menuButton = useRef<HTMLButtonElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -258,8 +257,22 @@ function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && menuOpen) {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
           scrolled
@@ -293,11 +306,13 @@ function Home() {
               rel="noreferrer"
               className="hidden h-12 items-center justify-center rounded-md border-2 border-white px-6 font-display text-base font-semibold text-white shadow-sm transition-colors hover:bg-white hover:text-[#6d5f4d] md:inline-flex md:bg-[#806f59]"
             >
-              Book Now
+              Book via WhatsApp
             </a>
             <button
               onClick={() => setMenuOpen((v) => !v)}
               className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#ad9f8b] text-[#493f32] lg:hidden"
+              ref={menuButton}
+              aria-controls="mobile-navigation"
               aria-expanded={menuOpen}
               aria-label="Toggle menu"
             >
@@ -307,7 +322,10 @@ function Home() {
         </div>
 
         {menuOpen && (
-          <div className="border-t border-[#c8bea9] bg-[#efe8dc] lg:hidden">
+          <div
+            id="mobile-navigation"
+            className="max-h-[calc(100svh-5rem)] overflow-y-auto border-t border-[#c8bea9] bg-[#efe8dc] lg:hidden"
+          >
             <nav className="mx-auto flex max-w-7xl flex-col px-5 py-5">
               {nav.map((n) => (
                 <a
@@ -325,24 +343,24 @@ function Home() {
                 rel="noreferrer"
                 className="mt-5 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#8c7155] px-5 text-xs font-semibold uppercase tracking-[0.18em] text-white"
               >
-                <WhatsAppIcon className="h-4 w-4" /> Book Now
+                <WhatsAppIcon className="h-4 w-4" /> Book via WhatsApp
               </a>
             </nav>
           </div>
         )}
       </header>
 
-      <main>
+      <main id="main" tabIndex={-1}>
         <section id="top" className="relative min-h-[88svh] overflow-hidden pt-20 md:pt-24">
           <img
             src={hero}
             alt="Limon Ranch peaceful Maralal retreat"
-            className="absolute inset-0 h-full w-full object-cover object-center brightness-[0.68] saturate-[0.82] contrast-[0.96]"
+            className="absolute inset-0 h-full w-full object-cover object-center brightness-[0.9] saturate-[0.82] contrast-[0.96]"
             width={1920}
             height={1280}
             fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-black/52" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/15" />
           <div className="relative z-10 mx-auto flex min-h-[calc(88svh-5rem)] max-w-7xl items-end px-5 pb-16 pt-20 md:min-h-[calc(88svh-6rem)] md:px-10 md:pb-20">
             <div className="reveal max-w-3xl text-white">
               <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.02] text-white sm:text-5xl md:text-7xl">
@@ -360,9 +378,9 @@ function Home() {
                   href={wa("Hello Limon Ranch, I'd like to book or ask availability.")}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c58a63] px-6 text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#b1764e]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#925f3c] px-6 text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#75492d]"
                 >
-                  <WhatsAppIcon className="h-4 w-4" /> Check Availability
+                  <WhatsAppIcon className="h-4 w-4" /> Enquire on WhatsApp
                 </a>
                 <a
                   href="#accommodation"
@@ -375,7 +393,11 @@ function Home() {
           </div>
         </section>
 
-        <section className="bg-[#f5efe5] px-5 py-14 md:px-10">
+        <section
+          id="about"
+          aria-label="About Limon Ranch"
+          className="bg-[#f5efe5] px-5 py-14 md:px-10"
+        >
           <div className="reveal mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.9fr_1.4fr] md:items-center">
             <div>
               <p className="eyebrow">Calm, Comfort and Connection</p>
@@ -409,6 +431,9 @@ function Home() {
             {accommodations.map((card, i) => (
               <ImageCard key={card.title} {...card} delay={i * 90} />
             ))}
+          </div>
+          <div className="px-5 md:px-10">
+            <BookingEnquiry />
           </div>
           <div className="reveal mt-12 flex justify-center px-5 md:px-10">
             <a
@@ -526,6 +551,11 @@ function Home() {
                 gather between sessions, host a small celebration or add food and drinks to a
                 meeting, retreat or private stay.
               </p>
+              <p className="mt-5 leading-8 text-[#625545]">
+                Breakfast is included in our single-occupancy and two-guests-sharing nightly rates.
+                Ask the team about breakfast times, other meals, dietary needs and any additional
+                costs when enquiring.
+              </p>
               <a
                 href={wa("Hello Limon Ranch, I'd like to ask about the restaurant and bar.")}
                 target="_blank"
@@ -556,7 +586,7 @@ function Home() {
                   href={wa("Hello Limon Ranch, I'd like to enquire about events or conferences.")}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c58a63] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#b1764e]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#925f3c] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#75492d]"
                 >
                   <WhatsAppIcon className="h-4 w-4" /> Enquire Now
                 </a>
@@ -634,7 +664,7 @@ function Home() {
                 href={wa("Hello Limon Ranch, I'd like to ask availability for a stay or retreat.")}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c58a63] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#b1764e]"
+                className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#925f3c] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#75492d]"
               >
                 <WhatsAppIcon className="h-4 w-4" /> Chat on WhatsApp
               </a>
@@ -658,7 +688,7 @@ function Home() {
 
         <section className="bg-[#efe5d6] px-5 py-20 md:px-10">
           <div className="reveal mx-auto grid max-w-5xl gap-8 bg-[#fbf7ef] p-8 md:grid-cols-[0.8fr_1.2fr] md:p-10">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#c58a63] text-white">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#925f3c] text-white">
               <Quote className="h-6 w-6" />
             </div>
             <div>
@@ -702,7 +732,7 @@ function Home() {
                   href={wa("Hello Limon Ranch, I'd like to plan a visit.")}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#c58a63] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#b1764e]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#925f3c] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#75492d]"
                 >
                   <WhatsAppIcon className="h-4 w-4" /> Chat on WhatsApp
                 </a>
@@ -722,9 +752,6 @@ function Home() {
                 </Social>
                 <Social href={IG_URL} label="Instagram">
                   <Instagram className="h-4 w-4" />
-                </Social>
-                <Social href={TIKTOK_URL} label="TikTok coming soon">
-                  <TikTokIcon />
                 </Social>
               </div>
             </div>
@@ -836,7 +863,7 @@ function ExperienceCard({
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute bottom-5 left-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#c58a63] text-white">
+        <div className="absolute bottom-5 left-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#925f3c] text-white">
           <Icon className="h-5 w-5" />
         </div>
       </div>
@@ -927,7 +954,7 @@ function FloatingActions() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
-        className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1fa855] text-white shadow-lg ring-2 ring-white/90 transition-transform hover:-translate-y-0.5 hover:bg-[#168a46]"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#16783e] text-white shadow-lg ring-2 ring-white/90 transition-transform hover:-translate-y-0.5 hover:bg-[#168a46]"
       >
         <WhatsAppIcon className="h-6 w-6" />
       </a>
@@ -994,6 +1021,8 @@ function Footer() {
         <FooterColumn
           title="Stay"
           links={[
+            ["About Limon Ranch", "#about"],
+            ["Rates & booking", "#booking"],
             ["Cottages / Rooms", "#accommodation"],
             ["Camping Grounds", "#accommodation"],
             ["Family & Group Stays", "#accommodation"],
@@ -1015,11 +1044,10 @@ function Footer() {
             ["WhatsApp", wa("Hello Limon Ranch, I'd like to enquire.")],
             ["Facebook", FB_URL],
             ["Instagram", IG_URL],
-            ["TikTok (coming soon)", TIKTOK_URL],
           ]}
         />
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
             Website by
           </p>
           <a
@@ -1039,12 +1067,12 @@ function Footer() {
             />
             <span className="font-display text-xl font-semibold text-[#e2c783]">Ewaso Digital</span>
           </a>
-          <p className="mt-4 max-w-[14rem] text-xs leading-6 text-white/52">
+          <p className="mt-4 max-w-[14rem] text-xs leading-6 text-white/70">
             Digital presence and marketing support.
           </p>
         </div>
       </div>
-      <div className="mx-auto mt-8 max-w-7xl text-xs text-white/50">
+      <div className="mx-auto mt-8 max-w-7xl text-xs text-white/70">
         <p>Copyright {year} Limon Ranch. All rights reserved.</p>
       </div>
     </footer>
@@ -1078,13 +1106,5 @@ function FooterColumn({
         ))}
       </ul>
     </div>
-  );
-}
-
-function TikTokIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.83a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-1.26Z" />
-    </svg>
   );
 }
