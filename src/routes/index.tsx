@@ -274,10 +274,10 @@ function Home() {
         Skip to content
       </a>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-200 ${
           scrolled
-            ? "border-[#b8ae9b]/70 bg-[#d9d0bd]/95 shadow-sm backdrop-blur-md"
-            : "border-[#c8bea9]/70 bg-[#d9d0bd]/92"
+            ? "border-border bg-ranch-wash-strong/95 shadow-sm"
+            : "border-border bg-ranch-wash-strong/92"
         }`}
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:h-24 md:px-8 xl:px-10">
@@ -291,9 +291,13 @@ function Home() {
             />
           </a>
 
-          <nav className="hidden items-center gap-6 text-[0.78rem] font-semibold uppercase tracking-wide text-[#695d4d] lg:flex">
+          <nav className="hidden items-center gap-6 text-[0.78rem] font-semibold uppercase tracking-wide text-muted-foreground lg:flex">
             {nav.map((n) => (
-              <a key={n.href} href={n.href} className="transition-colors hover:text-[#b66f45]">
+              <a
+                key={n.href}
+                href={n.href}
+                className="relative py-2 transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-200 hover:text-primary hover:after:scale-x-100 focus-visible:text-primary focus-visible:after:scale-x-100"
+              >
                 {n.label}
               </a>
             ))}
@@ -304,13 +308,13 @@ function Home() {
               href={wa("Hello Limon Ranch, I'd like to check availability.")}
               target="_blank"
               rel="noreferrer"
-              className="hidden h-12 items-center justify-center rounded-md border-2 border-white px-6 font-display text-base font-semibold text-white shadow-sm transition-colors hover:bg-white hover:text-[#6d5f4d] md:inline-flex md:bg-[#806f59]"
+              className="hidden h-12 items-center justify-center rounded-md bg-primary px-6 font-display text-base font-semibold text-primary-foreground shadow-sm transition-colors duration-200 hover:bg-primary-hover md:inline-flex"
             >
               Book via WhatsApp
             </a>
             <button
               onClick={() => setMenuOpen((v) => !v)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#ad9f8b] text-[#493f32] lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border text-foreground transition-colors duration-200 hover:border-accent hover:text-primary lg:hidden"
               ref={menuButton}
               aria-controls="mobile-navigation"
               aria-expanded={menuOpen}
@@ -324,7 +328,7 @@ function Home() {
         {menuOpen && (
           <div
             id="mobile-navigation"
-            className="max-h-[calc(100svh-5rem)] overflow-y-auto border-t border-[#c8bea9] bg-[#efe8dc] lg:hidden"
+            className="max-h-[calc(100svh-5rem)] overflow-y-auto border-t border-border bg-ranch-wash lg:hidden"
           >
             <nav className="mx-auto flex max-w-7xl flex-col px-5 py-5">
               {nav.map((n) => (
@@ -332,7 +336,7 @@ function Home() {
                   key={n.href}
                   href={n.href}
                   onClick={() => setMenuOpen(false)}
-                  className="border-b border-[#d6cbbb] py-4 text-sm font-semibold uppercase tracking-wide text-[#574b3c]"
+                  className="border-b border-border py-4 text-sm font-semibold uppercase tracking-wide text-foreground transition-colors duration-200 hover:text-primary"
                 >
                   {n.label}
                 </a>
@@ -341,7 +345,7 @@ function Home() {
                 href={wa("Hello Limon Ranch, I'd like to check availability.")}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#8c7155] px-5 text-xs font-semibold uppercase tracking-[0.18em] text-white"
+                className="mt-5 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-5 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground transition-colors duration-200 hover:bg-primary-hover"
               >
                 <WhatsAppIcon className="h-4 w-4" /> Book via WhatsApp
               </a>
@@ -366,7 +370,7 @@ function Home() {
               <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.02] text-white sm:text-5xl md:text-7xl">
                 Limon Ranch
               </h1>
-              <p className="mt-4 font-display text-3xl text-[#e2c783] md:text-5xl">
+              <p className="mt-4 font-display text-3xl text-gold-soft md:text-5xl">
                 Stay. Gather. Unwind.
               </p>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
@@ -378,13 +382,13 @@ function Home() {
                   href={wa("Hello Limon Ranch, I'd like to book or ask availability.")}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#925f3c] px-6 text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#75492d]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground transition-colors duration-200 hover:bg-primary-hover"
                 >
                   <WhatsAppIcon className="h-4 w-4" /> Enquire on WhatsApp
                 </a>
                 <a
                   href="#accommodation"
-                  className="inline-flex h-12 items-center justify-center rounded-md border border-white/70 px-6 text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors hover:border-[#e2c783] hover:text-[#e2c783]"
+                  className="inline-flex h-12 items-center justify-center rounded-md border border-white/70 px-6 text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors duration-200 hover:border-gold-soft hover:text-gold-soft"
                 >
                   View Stays
                 </a>
@@ -396,16 +400,16 @@ function Home() {
         <section
           id="about"
           aria-label="About Limon Ranch"
-          className="bg-[#f5efe5] px-5 py-14 md:px-10"
+          className="bg-ranch-wash px-5 py-14 md:px-10 md:py-16"
         >
           <div className="reveal mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.9fr_1.4fr] md:items-center">
             <div>
               <p className="eyebrow">Calm, Comfort and Connection</p>
-              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-foreground md:text-5xl">
                 Experience calm, comfort and connection at Limon Ranch.
               </h2>
             </div>
-            <div className="space-y-5 text-sm leading-8 text-[#625545] md:text-base">
+            <div className="space-y-5 text-sm leading-8 text-muted-foreground md:text-base">
               <p>
                 Limon Ranch is a quiet Maralal retreat for guests who want space to rest, reconnect
                 or plan something meaningful. The property brings together landscaped grounds,
@@ -427,7 +431,7 @@ function Home() {
             copy="Choose Limon Ranch for peaceful accommodation, private getaways, team retreats and stay support around meetings or conferences."
           />
 
-          <div className="mx-auto mt-14 grid max-w-7xl gap-7 px-5 md:grid-cols-2 md:px-10 xl:grid-cols-4">
+          <div className="mx-auto mt-12 grid max-w-7xl gap-6 px-5 md:mt-14 md:grid-cols-2 md:px-10 xl:grid-cols-4 xl:gap-7">
             {accommodations.map((card, i) => (
               <ImageCard key={card.title} {...card} delay={i * 90} />
             ))}
@@ -440,21 +444,21 @@ function Home() {
               href={wa("Hello Limon Ranch, I'd like to ask availability for accommodation.")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#8c7155] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#735c45]"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground transition-colors duration-200 hover:bg-primary-hover"
             >
               <WhatsAppIcon className="h-4 w-4" /> Ask Availability on WhatsApp
             </a>
           </div>
         </section>
 
-        <section id="experiences" className="section-pad bg-[#efe5d6]">
+        <section id="experiences" className="section-pad bg-ranch-wash">
           <SectionIntro
             eyebrow="At the Ranch"
             title="Space to rest, meet and reconnect."
             copy="Limon Ranch is built around calm grounds, comfortable stays, practical meeting space and the kind of quiet that helps guests breathe and focus."
           />
 
-          <div className="mx-auto mt-14 grid max-w-7xl gap-7 px-5 sm:grid-cols-2 md:px-10 lg:grid-cols-3">
+          <div className="mx-auto mt-12 grid max-w-7xl gap-6 px-5 sm:grid-cols-2 md:mt-14 md:px-10 lg:grid-cols-3 xl:gap-7">
             {experiences.map((card, i) => (
               <ExperienceCard key={card.title} {...card} delay={i * 70} />
             ))}
@@ -464,21 +468,21 @@ function Home() {
               href={wa("Hello Limon Ranch, I'd like to plan a stay, meeting or retreat.")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-[#bba98f] px-6 text-xs font-bold uppercase tracking-[0.18em] text-[#5a4c3d] transition-colors hover:border-[#b1764e] hover:text-[#b1764e]"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-border px-6 text-xs font-bold uppercase tracking-[0.18em] text-foreground transition-colors duration-200 hover:border-accent hover:text-primary"
             >
               <WhatsAppIcon className="h-4 w-4" /> Plan a Visit
             </a>
           </div>
 
-          <div className="reveal mx-auto mt-20 max-w-7xl px-5 md:px-10">
-            <div className="grid gap-8 border-t border-[#d5c8b7] pt-12 md:grid-cols-[0.9fr_1.1fr] md:items-start">
+          <div className="reveal mx-auto mt-16 max-w-7xl px-5 md:mt-20 md:px-10">
+            <div className="grid gap-8 border-t border-border pt-10 md:grid-cols-[0.9fr_1.1fr] md:items-start md:pt-12">
               <div>
                 <p className="eyebrow">Northern Kenya Experiences</p>
-                <h3 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-4xl">
+                <h3 className="mt-5 font-display text-3xl font-semibold leading-tight text-foreground md:text-4xl">
                   Plan regional experiences with clear travel expectations.
                 </h3>
               </div>
-              <div className="space-y-5 text-sm leading-8 text-[#625545] md:text-base">
+              <div className="space-y-5 text-sm leading-8 text-muted-foreground md:text-base">
                 <p>
                   Northern Kenya is rich with culture, landscapes and wildlife experiences. Limon
                   Ranch offers a calm Maralal base for guests planning regional journeys, seasonal
@@ -491,7 +495,7 @@ function Home() {
                   planned in advance. Some extended experiences may require early planning, private
                   transport, or flight arrangements depending on itinerary and budget.
                 </p>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8c7155]">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
                   Distances are approximate and may vary depending on route, road conditions and
                   season.
                 </p>
@@ -502,7 +506,7 @@ function Home() {
               {northernExperiences.map((item, index) => (
                 <article
                   key={item.title}
-                  className={`overflow-hidden border border-[#d5c8b7] bg-[#fbf7ef] ${
+                  className={`overflow-hidden border border-border bg-card ${
                     index === 0 ? "lg:col-span-3" : ""
                   }`}
                 >
@@ -515,14 +519,14 @@ function Home() {
                     />
                   </div>
                   <div className="p-6">
-                    <h4 className="font-display text-2xl font-semibold text-[#332b22]">
+                    <h4 className="font-display text-2xl font-semibold text-foreground">
                       {item.title}
                     </h4>
-                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#a5633e]">
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
                       Estimated distance
                     </p>
-                    <p className="mt-2 text-sm leading-7 text-[#625545]">{item.distance}</p>
-                    <p className="mt-4 text-sm leading-7 text-[#625545]">{item.copy}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.distance}</p>
+                    <p className="mt-4 text-sm leading-7 text-muted-foreground">{item.copy}</p>
                   </div>
                 </article>
               ))}
@@ -531,7 +535,7 @@ function Home() {
         </section>
 
         <section id="restaurant" className="section-pad bg-background">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-2 md:items-center md:px-10">
+          <div className="mx-auto grid max-w-7xl gap-9 px-5 md:grid-cols-2 md:items-center md:px-10 xl:gap-12">
             <div className="reveal relative min-h-[440px] overflow-hidden">
               <img
                 src={foodPlatter}
@@ -540,18 +544,18 @@ function Home() {
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
-            <div className="reveal md:pl-8" style={{ transitionDelay: "120ms" }}>
+            <div className="reveal md:pl-4 xl:pl-8" style={{ transitionDelay: "80ms" }}>
               <p className="eyebrow">Restaurant & Bar</p>
-              <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-5xl">
+              <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-foreground md:text-5xl">
                 Meals, drinks and easy ranch hospitality.
               </h2>
               <span className="gold-rule mt-6" />
-              <p className="mt-7 leading-8 text-[#625545]">
+              <p className="mt-7 leading-8 text-muted-foreground">
                 The restaurant and bar support the wider retreat experience. Guests can plan a meal,
                 gather between sessions, host a small celebration or add food and drinks to a
                 meeting, retreat or private stay.
               </p>
-              <p className="mt-5 leading-8 text-[#625545]">
+              <p className="mt-5 leading-8 text-muted-foreground">
                 Breakfast is included in our single-occupancy and two-guests-sharing nightly rates.
                 Ask the team about breakfast times, other meals, dietary needs and any additional
                 costs when enquiring.
@@ -560,7 +564,7 @@ function Home() {
                 href={wa("Hello Limon Ranch, I'd like to ask about the restaurant and bar.")}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#8c7155] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#735c45]"
+                className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground transition-colors duration-200 hover:bg-primary-hover"
               >
                 <WhatsAppIcon className="h-4 w-4" /> Ask About Restaurant
               </a>
@@ -568,14 +572,14 @@ function Home() {
           </div>
         </section>
 
-        <section id="events" className="section-pad bg-[#2b241d] text-white">
+        <section id="events" className="section-pad bg-ranch-ink text-white">
           <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[1.05fr_0.95fr] md:items-center md:px-10">
             <div className="reveal">
-              <p className="eyebrow text-[#e2c783]">Conference Centre</p>
+              <p className="eyebrow text-gold-soft">Conference Centre</p>
               <h2 className="mt-5 font-display text-3xl font-semibold leading-tight md:text-5xl">
                 A quiet place for meetings and retreats.
               </h2>
-              <span className="gold-rule mt-6 bg-[#e2c783]" />
+              <span className="gold-rule mt-6 bg-gold-soft" />
               <p className="mt-7 leading-8 text-white/75">
                 Limon Ranch offers a conference centre for meetings, team retreats and focused
                 gatherings, supported by landscaped grounds, comfortable accommodation and direct
@@ -586,19 +590,19 @@ function Home() {
                   href={wa("Hello Limon Ranch, I'd like to enquire about events or conferences.")}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#925f3c] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#75492d]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground transition-colors duration-200 hover:bg-primary-hover"
                 >
                   <WhatsAppIcon className="h-4 w-4" /> Enquire Now
                 </a>
                 <a
                   href="#gallery"
-                  className="inline-flex h-12 items-center justify-center rounded-md border border-white/40 px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:border-[#e2c783] hover:text-[#e2c783]"
+                  className="inline-flex h-12 items-center justify-center rounded-md border border-white/40 px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors duration-200 hover:border-gold-soft hover:text-gold-soft"
                 >
                   View Gallery
                 </a>
               </div>
             </div>
-            <div className="reveal grid gap-4 sm:grid-cols-2" style={{ transitionDelay: "120ms" }}>
+            <div className="reveal grid gap-4 sm:grid-cols-2" style={{ transitionDelay: "80ms" }}>
               <img
                 src={events}
                 alt="Limon Ranch event hall"
@@ -615,12 +619,12 @@ function Home() {
           </div>
         </section>
 
-        <section className="section-pad bg-[#f7f1e8]">
+        <section className="section-pad bg-ranch-wash">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <div className="reveal grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-start">
               <div>
                 <p className="eyebrow">Why Guests Choose Limon Ranch</p>
-                <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-5xl">
+                <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-foreground md:text-5xl">
                   A peaceful setting with practical comforts.
                 </h2>
               </div>
@@ -628,9 +632,9 @@ function Home() {
                 {trustPoints.map((point) => (
                   <div
                     key={point}
-                    className="flex gap-3 border-b border-[#d7cbbb] pb-4 text-[#5f5243]"
+                    className="flex gap-3 border-b border-border pb-4 text-muted-foreground"
                   >
-                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#b1764e]" />
+                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
                     <span className="leading-7">{point}</span>
                   </div>
                 ))}
@@ -640,7 +644,7 @@ function Home() {
         </section>
 
         <section
-          className="relative min-h-[540px] overflow-hidden bg-[#241f19]"
+          className="relative min-h-[540px] overflow-hidden bg-ranch-ink"
           aria-label="Limon Ranch landscaped retreat feature"
         >
           <img
@@ -652,7 +656,7 @@ function Home() {
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 mx-auto flex min-h-[540px] max-w-7xl items-end px-5 py-16 md:px-10">
             <div className="reveal max-w-2xl text-white">
-              <p className="eyebrow text-[#e2c783]">Now Welcoming Guests</p>
+              <p className="eyebrow text-gold-soft">Now Welcoming Guests</p>
               <h2 className="mt-5 font-display text-3xl font-semibold leading-tight md:text-5xl">
                 Your space to breathe, focus and feel at home.
               </h2>
@@ -664,7 +668,7 @@ function Home() {
                 href={wa("Hello Limon Ranch, I'd like to ask availability for a stay or retreat.")}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#925f3c] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#75492d]"
+                className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground transition-colors duration-200 hover:bg-primary-hover"
               >
                 <WhatsAppIcon className="h-4 w-4" /> Chat on WhatsApp
               </a>
@@ -679,24 +683,24 @@ function Home() {
             copy="Browse the property in clear groups: grounds, rooms, restaurant moments, event spaces, regional inspiration and outdoor leisure."
           />
 
-          <div className="mx-auto mt-14 grid max-w-7xl gap-12 px-5 md:px-10">
+          <div className="mx-auto mt-12 grid max-w-7xl gap-10 px-5 md:mt-14 md:gap-12 md:px-10">
             {galleryGroups.map((group) => (
               <GalleryGroup key={group.title} {...group} />
             ))}
           </div>
         </section>
 
-        <section className="bg-[#efe5d6] px-5 py-20 md:px-10">
-          <div className="reveal mx-auto grid max-w-5xl gap-8 bg-[#fbf7ef] p-8 md:grid-cols-[0.8fr_1.2fr] md:p-10">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#925f3c] text-white">
+        <section className="bg-ranch-wash px-5 py-16 md:px-10 md:py-20">
+          <div className="reveal mx-auto grid max-w-5xl gap-8 bg-card p-8 md:grid-cols-[0.8fr_1.2fr] md:p-10">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
               <Quote className="h-6 w-6" />
             </div>
             <div>
               <p className="eyebrow">Guest Feedback</p>
-              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-4xl">
+              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-foreground md:text-4xl">
                 Read our Google Reviews
               </h2>
-              <p className="mt-5 leading-8 text-[#625545]">
+              <p className="mt-5 leading-8 text-muted-foreground">
                 See what guests are saying about Limon Ranch on Google. We link directly to the
                 public profile so feedback stays accurate and easy to verify.
               </p>
@@ -704,7 +708,7 @@ function Home() {
                 href={GOOGLE_REVIEWS_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-7 inline-flex h-12 items-center justify-center rounded-md border border-[#bba98f] px-6 text-xs font-bold uppercase tracking-[0.18em] text-[#5a4c3d] transition-colors hover:border-[#b1764e] hover:text-[#b1764e]"
+                className="mt-7 inline-flex h-12 items-center justify-center rounded-md border border-border px-6 text-xs font-bold uppercase tracking-[0.18em] text-foreground transition-colors duration-200 hover:border-accent hover:text-primary"
               >
                 Read our Google Reviews
               </a>
@@ -713,17 +717,17 @@ function Home() {
         </section>
 
         <section id="contact" className="section-pad bg-background">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[0.9fr_1.1fr] md:px-10">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[0.9fr_1.1fr] md:px-10 xl:gap-14">
             <div className="reveal">
               <p className="eyebrow">Contact</p>
-              <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-5xl">
+              <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-foreground md:text-5xl">
                 Ask availability directly.
               </h2>
-              <p className="mt-7 leading-8 text-[#625545]">
+              <p className="mt-7 leading-8 text-muted-foreground">
                 For accommodation, private getaways, meetings, conferences and team retreats,
                 WhatsApp is the clearest way to reach the Limon Ranch team.
               </p>
-              <div className="mt-8 space-y-4 text-[#514637]">
+              <div className="mt-8 space-y-4 text-foreground">
                 <ContactLine icon={MessageCircle} label="WhatsApp" value={DISPLAY_PHONE} />
                 <ContactLine icon={MapPin} label="Location" value={MAP_LOCATION} />
               </div>
@@ -732,7 +736,7 @@ function Home() {
                   href={wa("Hello Limon Ranch, I'd like to plan a visit.")}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#925f3c] px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#75492d]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground transition-colors duration-200 hover:bg-primary-hover"
                 >
                   <WhatsAppIcon className="h-4 w-4" /> Chat on WhatsApp
                 </a>
@@ -740,7 +744,7 @@ function Home() {
                   href={MAP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-[#bba98f] px-5 text-xs font-bold uppercase tracking-[0.18em] text-[#5a4c3d] transition-colors hover:border-[#b1764e] hover:text-[#b1764e]"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-border px-5 text-xs font-bold uppercase tracking-[0.18em] text-foreground transition-colors duration-200 hover:border-accent hover:text-primary"
                 >
                   <MapPin className="h-4 w-4" /> Get Directions
                 </a>
@@ -756,15 +760,15 @@ function Home() {
               </div>
             </div>
 
-            <div className="reveal" style={{ transitionDelay: "120ms" }}>
-              <div className="border border-[#d8c8b4] bg-[#fbf7ef] p-7 shadow-sm md:p-9">
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a5633e]">
+            <div className="reveal" style={{ transitionDelay: "80ms" }}>
+              <div className="border border-border bg-card p-7 shadow-sm md:p-9">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
                   Location
                 </p>
-                <h3 className="mt-5 font-display text-3xl font-semibold text-[#332b22]">
+                <h3 className="mt-5 font-display text-3xl font-semibold text-foreground">
                   {MAP_PLUS_CODE}
                 </h3>
-                <p className="mt-4 leading-8 text-[#625545]">
+                <p className="mt-4 leading-8 text-muted-foreground">
                   Use this plus code as the Limon Ranch map reference for directions to Lpartuk,
                   near Maralal in Samburu County, Kenya.
                 </p>
@@ -772,7 +776,7 @@ function Home() {
                   href={MAP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#2b241d] px-5 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#5a4c3d]"
+                  className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-ranch-ink px-5 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors duration-200 hover:bg-ranch-ink-soft"
                 >
                   <MapPin className="h-4 w-4" /> View on Google Maps
                 </a>
@@ -792,11 +796,11 @@ function SectionIntro({ eyebrow, title, copy }: { eyebrow: string; title: string
   return (
     <div className="reveal mx-auto max-w-3xl px-5 text-center md:px-10">
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-[#332b22] md:text-5xl">
+      <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-foreground md:text-5xl">
         {title}
       </h2>
       <span className="gold-rule mt-6" />
-      <p className="mx-auto mt-7 max-w-2xl leading-8 text-[#625545]">{copy}</p>
+      <p className="mx-auto mt-7 max-w-2xl leading-8 text-muted-foreground">{copy}</p>
     </div>
   );
 }
@@ -815,24 +819,21 @@ function ImageCard({
   delay: number;
 }) {
   return (
-    <article
-      className="reveal group bg-[#fbf7ef] shadow-sm"
-      style={{ transitionDelay: `${delay}ms` }}
-    >
+    <article className="reveal group bg-card shadow-sm" style={{ transitionDelay: `${delay}ms` }}>
       <div className="relative h-80 overflow-hidden">
         <img
           src={img}
           alt={title}
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="media-zoom absolute inset-0 h-full w-full object-cover transition-transform duration-300"
         />
-        <div className="absolute left-0 top-8 bg-[#2b241d] px-6 py-4 text-white">
+        <div className="absolute left-0 top-8 bg-ranch-ink px-6 py-4 text-white">
           <Icon className="h-5 w-5" />
         </div>
       </div>
       <div className="p-7">
-        <h3 className="font-display text-2xl font-semibold text-[#332b22]">{title}</h3>
-        <p className="mt-4 text-sm leading-7 text-[#625545]">{copy}</p>
+        <h3 className="font-display text-2xl font-semibold text-foreground">{title}</h3>
+        <p className="mt-4 text-sm leading-7 text-muted-foreground">{copy}</p>
       </div>
     </article>
   );
@@ -853,7 +854,7 @@ function ExperienceCard({
 }) {
   return (
     <article
-      className="reveal group overflow-hidden bg-[#fbf7ef]"
+      className="reveal group overflow-hidden bg-card"
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="relative h-64 overflow-hidden">
@@ -861,15 +862,15 @@ function ExperienceCard({
           src={img}
           alt={title}
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="media-zoom absolute inset-0 h-full w-full object-cover transition-transform duration-300"
         />
-        <div className="absolute bottom-5 left-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#925f3c] text-white">
+        <div className="absolute bottom-5 left-5 flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground">
           <Icon className="h-5 w-5" />
         </div>
       </div>
       <div className="p-7">
-        <h3 className="font-display text-2xl font-semibold text-[#332b22]">{title}</h3>
-        <p className="mt-4 text-sm leading-7 text-[#625545]">{copy}</p>
+        <h3 className="font-display text-2xl font-semibold text-foreground">{title}</h3>
+        <p className="mt-4 text-sm leading-7 text-muted-foreground">{copy}</p>
       </div>
     </article>
   );
@@ -886,17 +887,17 @@ function GalleryGroup({
 }) {
   return (
     <section className="reveal">
-      <div className="mb-5 flex flex-col gap-2 border-b border-[#d7cbbb] pb-4 md:flex-row md:items-end md:justify-between">
+      <div className="mb-5 flex flex-col gap-2 border-b border-border pb-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <h3 className="font-display text-2xl font-semibold text-[#332b22]">{title}</h3>
-          <p className="mt-2 max-w-2xl text-sm leading-7 text-[#625545]">{copy}</p>
+          <h3 className="font-display text-2xl font-semibold text-foreground">{title}</h3>
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">{copy}</p>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-3 [grid-auto-rows:150px] md:grid-cols-4 md:[grid-auto-rows:220px]">
         {items.length > 0 ? (
           items.map((item) => <GalleryItem key={`${title}-${item.alt}`} {...item} />)
         ) : (
-          <div className="col-span-2 flex min-h-36 items-center border border-dashed border-[#cbbda8] bg-[#fbf7ef] p-6 text-sm leading-7 text-[#625545] md:col-span-4">
+          <div className="col-span-2 flex min-h-36 items-center border border-dashed border-border bg-card p-6 text-sm leading-7 text-muted-foreground md:col-span-4">
             Official reference images for this category can be added here once provided.
           </div>
         )}
@@ -915,12 +916,12 @@ function GalleryItem({
   className?: string;
 }) {
   return (
-    <div className={`relative overflow-hidden bg-[#e9decd] ${className}`}>
+    <div className={`relative overflow-hidden bg-ranch-wash-strong ${className}`}>
       <img
         src={src}
         alt={alt}
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+        className="media-zoom absolute inset-0 h-full w-full object-cover transition-transform duration-300"
       />
     </div>
   );
@@ -937,9 +938,9 @@ function ContactLine({
 }) {
   return (
     <div className="flex gap-3">
-      <Icon className="mt-1 h-5 w-5 shrink-0 text-[#b1764e]" />
+      <Icon className="mt-1 h-5 w-5 shrink-0 text-accent" />
       <div>
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8c7155]">{label}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{label}</p>
         <p className="mt-1 font-medium">{value}</p>
       </div>
     </div>
@@ -954,14 +955,14 @@ function FloatingActions() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
-        className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#16783e] text-white shadow-lg ring-2 ring-white/90 transition-transform hover:-translate-y-0.5 hover:bg-[#168a46]"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#16783e] text-white shadow-lg ring-2 ring-white/90 transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-[#168a46]"
       >
         <WhatsAppIcon className="h-6 w-6" />
       </a>
       <a
         href={call}
         aria-label="Call Limon Ranch"
-        className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#8c7155] text-white shadow-lg transition-transform hover:-translate-y-0.5"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-lg transition-transform duration-200 hover:-translate-y-0.5"
       >
         <Phone className="h-5 w-5" />
       </a>
@@ -992,7 +993,7 @@ function Social({
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#bba98f] text-[#5a4c3d] transition-colors hover:border-[#b1764e] hover:text-[#b1764e]"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors duration-200 hover:border-accent hover:text-primary"
     >
       {children}
     </a>
@@ -1002,8 +1003,8 @@ function Social({
 function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-[#2b241d] px-5 pb-28 pt-14 text-white md:px-10 md:pb-16">
-      <div className="mx-auto grid max-w-7xl gap-10 border-b border-white/15 pb-10 md:grid-cols-[1.15fr_0.85fr_1fr_0.85fr_1.1fr]">
+    <footer className="bg-ranch-ink px-5 pb-28 pt-14 text-white md:px-10 md:pb-16">
+      <div className="mx-auto grid max-w-7xl gap-10 border-b border-white/15 pb-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-[1.15fr_0.85fr_1fr_0.85fr_1.1fr]">
         <div>
           <img
             src={footerLogo}
@@ -1054,7 +1055,7 @@ function Footer() {
             href={EWASO_URL}
             target="_blank"
             rel="noreferrer"
-            className="mt-4 inline-flex items-center gap-3 transition-opacity hover:opacity-85"
+            className="mt-4 inline-flex items-center gap-3 transition-opacity duration-200 hover:opacity-85"
             aria-label="Website by Ewaso Digital"
           >
             <img
@@ -1065,7 +1066,7 @@ function Footer() {
               width={48}
               height={48}
             />
-            <span className="font-display text-xl font-semibold text-[#e2c783]">Ewaso Digital</span>
+            <span className="font-display text-xl font-semibold text-gold-soft">Ewaso Digital</span>
           </a>
           <p className="mt-4 max-w-[14rem] text-xs leading-6 text-white/70">
             Digital presence and marketing support.
@@ -1090,7 +1091,7 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h3 className="font-display text-xl font-semibold text-[#e2c783]">{title}</h3>
+      <h3 className="font-display text-xl font-semibold text-gold-soft">{title}</h3>
       <ul className="mt-5 space-y-3 text-sm text-white/68">
         {links.map(([label, href]) => (
           <li key={label}>
