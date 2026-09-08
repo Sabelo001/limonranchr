@@ -11,31 +11,17 @@ export function BookingEnquiry() {
       aria-labelledby="booking-title"
     >
       <div>
-        <p className="eyebrow">Bed & breakfast</p>
+        <p className="eyebrow">Accommodation enquiry</p>
         <h3 id="booking-title" className="mt-3 font-display text-3xl font-semibold md:text-4xl">
           Plan your stay
         </h3>
         <p className="mt-4 max-w-lg leading-7 text-muted-foreground">
-          Check the confirmed nightly rates, then send your dates and preferences directly to the
-          Limon Ranch team.
+          Share your dates, number of guests and accommodation preferences with the Limon Ranch
+          team. We’ll confirm availability and provide the appropriate rate directly on WhatsApp.
         </p>
-        <div className="my-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-          <p className="border-l-2 border-accent bg-ranch-wash p-5">
-            <span className="text-sm font-semibold text-muted-foreground">Single occupancy</span>
-            <strong className="mt-1 block font-display text-2xl text-foreground">
-              KSh 3,500 <span className="font-sans text-sm font-medium">per night</span>
-            </strong>
-          </p>
-          <p className="border-l-2 border-accent bg-ranch-wash p-5">
-            <span className="text-sm font-semibold text-muted-foreground">Two guests sharing</span>
-            <strong className="mt-1 block font-display text-2xl text-foreground">
-              KSh 4,500 <span className="font-sans text-sm font-medium">per night</span>
-            </strong>
-          </p>
-        </div>
-        <p className="mb-7 text-sm leading-7 text-muted-foreground lg:mb-0">
-          Breakfast is included. For families, groups or camping, ask the team for a quote and
-          suitable arrangements.
+        <p className="mb-7 mt-6 border-l-2 border-accent bg-ranch-wash p-5 text-sm leading-7 text-muted-foreground lg:mb-0">
+          Your enquiry opens as a WhatsApp draft for you to review. The ranch team will reply with
+          availability, the appropriate rate and booking terms.
         </p>
       </div>
       <form
@@ -111,7 +97,7 @@ export function BookingEnquiry() {
           type="submit"
           className="min-h-12 rounded-md bg-primary px-5 py-3 font-semibold text-primary-foreground transition-colors duration-200 hover:bg-primary-hover sm:col-span-2"
         >
-          Continue on WhatsApp
+          Enquire on WhatsApp
         </button>
       </form>
     </section>

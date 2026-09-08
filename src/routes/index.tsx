@@ -10,7 +10,6 @@ import {
   Instagram,
   MapPin,
   Menu,
-  MessageCircle,
   Phone,
   Quote,
   Utensils,
@@ -23,7 +22,7 @@ import footerLogo from "@/assets/optimized/logo-footer.webp";
 import ewasoLogo from "@/assets/optimized/ewaso-digital-logo.webp";
 import hero from "@/assets/property-exterior.jpg";
 import { BookingEnquiry } from "@/components/booking-enquiry";
-import { DISPLAY_PHONE, bookingDraft as wa } from "@/lib/booking";
+import { CALL_PHONE, DISPLAY_PHONE, bookingDraft as wa } from "@/lib/booking";
 import cottages from "@/assets/optimized/cottages.webp";
 import room1 from "@/assets/optimized/room-1.webp";
 import room2 from "@/assets/optimized/room-2.webp";
@@ -50,6 +49,9 @@ import camelDerby from "@/assets/optimized/maralal-camel-derby.webp";
 import ololokweMountain from "@/assets/ololokwe-mountain.jpg";
 import samburuReserveGate from "@/assets/optimized/samburu-national-reserve-gate.webp";
 import sugutaValley from "@/assets/suguta-valley-view.jpg";
+import kenyattaHouseExterior from "@/assets/optimized/kenyatta-house-exterior.webp";
+import kenyattaHouseSign from "@/assets/optimized/kenyatta-house-sign.webp";
+import kenyattaHouseBedroom from "@/assets/optimized/kenyatta-house-bedroom.webp";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
@@ -63,8 +65,9 @@ const MAP_LOCATION = `${MAP_PLUS_CODE} - Maralal / Samburu County, Kenya`;
 const MAP_URL = "https://maps.app.goo.gl/4Xm9Qb9EWECueuds5";
 const EWASO_URL = "https://ewasodigital.co.ke";
 const GOOGLE_REVIEWS_URL = "https://share.google/r7q9bAdSS66KR0NwQ";
+const KENYATTA_HOUSE_URL = "https://museums.or.ke/kenyatta-house-maralal/";
 
-const call = `tel:${DISPLAY_PHONE.replace(/\s/g, "")}`;
+const call = `tel:${CALL_PHONE}`;
 
 const nav = [
   { label: "Home", href: "#top" },
@@ -503,14 +506,78 @@ function Home() {
             </div>
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {northernExperiences.map((item, index) => (
-                <article
-                  key={item.title}
-                  className={`overflow-hidden border border-border bg-card ${
-                    index === 0 ? "lg:col-span-3" : ""
-                  }`}
-                >
-                  <div className={`relative overflow-hidden ${index === 0 ? "h-80" : "h-56"}`}>
+              <article
+                id="kenyatta-house"
+                className="scroll-mt-28 overflow-hidden border border-border bg-card sm:col-span-2 lg:col-span-3"
+              >
+                <div className="grid gap-2 bg-ranch-ink sm:grid-cols-[1.6fr_1fr]">
+                  <img
+                    src={kenyattaHouseExterior}
+                    alt="Exterior of Kenyatta House in Maralal"
+                    loading="lazy"
+                    width={1280}
+                    height={960}
+                    className="h-64 w-full object-cover sm:h-[26rem]"
+                  />
+                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-1">
+                    <img
+                      src={kenyattaHouseSign}
+                      alt="Kenyatta House Maralal entrance sign"
+                      loading="lazy"
+                      width={1280}
+                      height={960}
+                      className="h-32 w-full object-cover sm:h-[12.75rem]"
+                    />
+                    <img
+                      src={kenyattaHouseBedroom}
+                      alt="Preserved bedroom inside Kenyatta House Maralal"
+                      loading="lazy"
+                      width={1280}
+                      height={960}
+                      className="h-32 w-full object-cover sm:h-[12.75rem]"
+                    />
+                  </div>
+                </div>
+                <div className="grid gap-6 p-6 md:grid-cols-[0.72fr_1.28fr] md:p-8">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                      History &amp; Heritage
+                    </p>
+                    <h4 className="mt-3 font-display text-3xl font-semibold text-foreground">
+                      Kenyatta House, Maralal
+                    </h4>
+                  </div>
+                  <div>
+                    <p className="text-sm leading-7 text-muted-foreground">
+                      Visit one of Maralal’s most important historic landmarks. Built in 1959,
+                      Kenyatta House served as a detention residence for Mzee Jomo Kenyatta in 1961,
+                      shortly before his release. The National Museums of Kenya records that
+                      important independence negotiations took place here and that Kenyatta
+                      completed “Facing Mount Kenya” during his stay.
+                    </p>
+                    <div className="mt-5 border-l-2 border-accent pl-4">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                        Travel note
+                      </p>
+                      <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                        Located in Maralal town. Confirm current opening arrangements and entry
+                        requirements with the National Museums of Kenya before visiting.
+                      </p>
+                    </div>
+                    <a
+                      href={KENYATTA_HOUSE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex min-h-11 items-center border-b border-accent text-sm font-semibold text-foreground transition-colors duration-200 hover:text-primary"
+                    >
+                      Learn more at National Museums of Kenya
+                    </a>
+                  </div>
+                </div>
+              </article>
+              {northernExperiences.map((item) => (
+                <article key={item.title} className="overflow-hidden border border-border bg-card">
+                  <div className="relative h-56 overflow-hidden">
                     <img
                       src={item.img}
                       alt={`${item.title} regional Northern Kenya experience`}
@@ -556,9 +623,8 @@ function Home() {
                 meeting, retreat or private stay.
               </p>
               <p className="mt-5 leading-8 text-muted-foreground">
-                Breakfast is included in our single-occupancy and two-guests-sharing nightly rates.
-                Ask the team about breakfast times, other meals, dietary needs and any additional
-                costs when enquiring.
+                Ask the team about breakfast, other meals, dietary needs and arrangements for your
+                stay or gathering when enquiring.
               </p>
               <a
                 href={wa("Hello Limon Ranch, I'd like to ask about the restaurant and bar.")}
@@ -728,7 +794,7 @@ function Home() {
                 WhatsApp is the clearest way to reach the Limon Ranch team.
               </p>
               <div className="mt-8 space-y-4 text-foreground">
-                <ContactLine icon={MessageCircle} label="WhatsApp" value={DISPLAY_PHONE} />
+                <ContactLine icon={WhatsAppIcon} label="WhatsApp" value={DISPLAY_PHONE} />
                 <ContactLine icon={MapPin} label="Location" value={MAP_LOCATION} />
               </div>
               <div className="mt-8 flex flex-wrap gap-4">
@@ -932,7 +998,7 @@ function ContactLine({
   label,
   value,
 }: {
-  icon: typeof MessageCircle;
+  icon: React.ComponentType<{ className?: string }>;
   label: string;
   value: string;
 }) {
@@ -1023,7 +1089,7 @@ function Footer() {
           title="Stay"
           links={[
             ["About Limon Ranch", "#about"],
-            ["Rates & booking", "#booking"],
+            ["Booking enquiry", "#booking"],
             ["Cottages / Rooms", "#accommodation"],
             ["Camping Grounds", "#accommodation"],
             ["Family & Group Stays", "#accommodation"],

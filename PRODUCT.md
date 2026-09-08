@@ -11,7 +11,7 @@ primary_action: WhatsApp booking enquiry
 
 Limon Ranch is a welcoming, good-value stay in Maralal for travellers, families, teams and small groups seeking comfortable accommodation, freshly prepared meals and peaceful grounds.
 
-The website helps prospective guests understand the property, review confirmed bed-and-breakfast rates, explore suitable stays and experiences, find the ranch, and begin a direct booking enquiry through WhatsApp.
+The website helps prospective guests understand the property, explore suitable stays and experiences, find the ranch, and begin a direct booking enquiry through WhatsApp.
 
 ## Audiences
 
@@ -24,15 +24,17 @@ The website helps prospective guests understand the property, review confirmed b
 
 1. Establish the ranch setting and hospitality through authentic photography.
 2. Explain accommodation, meals, grounds and gathering options clearly.
-3. Present confirmed rates without implying live availability.
+3. Explain that accommodation rates are provided privately after an enquiry.
 4. Collect useful enquiry details and open a reviewable WhatsApp draft.
 5. Let the ranch team confirm availability, total price and booking terms directly.
 
 ## Confirmed commercial details
 
-- Single occupancy bed and breakfast: KSh 3,500 per night.
-- Two guests sharing bed and breakfast: KSh 4,500 per night.
-- Primary business contact and booking channel: the confirmed WhatsApp number implemented in the website.
+- Accommodation rates are provided privately on enquiry and must not be displayed publicly.
+- Display phone number: 0783 522 345.
+- International call number: +254783522345.
+- WhatsApp number: 254783522345.
+- Primary business contact and booking channel: WhatsApp.
 - Production origin: https://limon-ranch.pages.dev/.
 
 ## Product constraints
@@ -40,7 +42,8 @@ The website helps prospective guests understand the property, review confirmed b
 - Do not claim real-time availability or accept online payment.
 - Do not infer room counts, room configurations, amenities, policies, travel times or services.
 - Keep regional experience descriptions practical and explicit about advance planning.
-- Preserve confirmed contacts, rates, location references and booking language.
+- Preserve confirmed contacts, location references and booking language.
+- Keep accommodation rates out of public pages, metadata and structured data.
 - Maintain a fast static build suitable for the existing Cloudflare Pages project.
 
 ## Brand commitments

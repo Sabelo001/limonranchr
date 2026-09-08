@@ -1,5 +1,6 @@
-export const WHATSAPP = "254722207384";
-export const DISPLAY_PHONE = "+254 722 207 384";
+export const WHATSAPP = "254783522345";
+export const DISPLAY_PHONE = "0783 522 345";
+export const CALL_PHONE = "+254783522345";
 
 export const wa = (message: string) =>
   `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;

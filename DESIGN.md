@@ -80,8 +80,8 @@ Photography may use a dark neutral overlay where text legibility requires it. Do
 
 ### Accommodation and booking
 
-- Rates should be visually scannable before the form.
-- Keep the single and sharing prices equally clear, with breakfast inclusion nearby.
+- Explain clearly that rates are supplied directly by the ranch team after enquiry.
+- Do not display accommodation prices publicly.
 - The form should remain a booking enquiry that creates a WhatsApp draft; never imply confirmation or live inventory.
 
 ### Photography
@@ -107,7 +107,7 @@ Photography may use a dark neutral overlay where text legibility requires it. Do
 ## Do
 
 - Lead with real photography and clear accommodation information.
-- Keep the confirmed rates and WhatsApp path prominent.
+- Keep the WhatsApp enquiry path prominent.
 - Use semantic design tokens consistently.
 - Test keyboard interaction and mobile, tablet and desktop layouts.
 - Write specific, verifiable hospitality copy.
