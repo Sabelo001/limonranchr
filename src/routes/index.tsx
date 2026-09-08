@@ -12,6 +12,7 @@ import {
   Menu,
   Phone,
   Quote,
+  Star,
   Utensils,
   Users,
   X,
@@ -64,10 +65,32 @@ const MAP_PLUS_CODE = "3MPH+GQM, Lpartuk";
 const MAP_LOCATION = `${MAP_PLUS_CODE} - Maralal / Samburu County, Kenya`;
 const MAP_URL = "https://maps.app.goo.gl/4Xm9Qb9EWECueuds5";
 const EWASO_URL = "https://ewasodigital.co.ke";
-const GOOGLE_REVIEWS_URL = "https://share.google/r7q9bAdSS66KR0NwQ";
+const GOOGLE_REVIEWS_URL = "https://share.google/x1HxhZh9Veugd1BsG";
 const KENYATTA_HOUSE_URL = "https://museums.or.ke/kenyatta-house-maralal/";
 
 const call = `tel:${CALL_PHONE}`;
+
+const googleReviews = [
+  {
+    name: "Merce Bosch",
+    rating: 4,
+    date: "One year ago",
+    review:
+      "The rooms are super comfortable and clean. Well maintained. Staff extremely helpful, professional and kind.",
+  },
+  {
+    name: "Saiwana Lekrepes",
+    rating: 5,
+    date: "Five years ago",
+    review: "Best service, food and drinks in town! The place is just exquisite!",
+  },
+  {
+    name: "Martin Munyi",
+    rating: 5,
+    date: "Three years ago",
+    review: "Loved the serenity of the place.",
+  },
+] as const;
 
 const nav = [
   { label: "Home", href: "#top" },
@@ -756,29 +779,65 @@ function Home() {
           </div>
         </section>
 
-        <section className="bg-ranch-wash px-5 py-16 md:px-10 md:py-20">
-          <div className="reveal mx-auto grid max-w-5xl gap-8 bg-card p-8 md:grid-cols-[0.8fr_1.2fr] md:p-10">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
-              <Quote className="h-6 w-6" />
-            </div>
-            <div>
+        <section id="guest-feedback" className="bg-ranch-wash px-5 py-16 md:px-10 md:py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="reveal max-w-2xl">
               <p className="eyebrow">Guest Feedback</p>
               <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-foreground md:text-4xl">
-                Read our Google Reviews
+                What guests have shared.
               </h2>
               <p className="mt-5 leading-8 text-muted-foreground">
-                See what guests are saying about Limon Ranch on Google. We link directly to the
-                public profile so feedback stays accurate and easy to verify.
+                Selected excerpts from genuine Google reviews of Limon Ranch.
               </p>
-              <a
-                href={GOOGLE_REVIEWS_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-7 inline-flex h-12 items-center justify-center rounded-md border border-border px-6 text-xs font-bold uppercase tracking-[0.18em] text-foreground transition-colors duration-200 hover:border-accent hover:text-primary"
-              >
-                Read our Google Reviews
-              </a>
             </div>
+
+            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              {googleReviews.map((review) => (
+                <article
+                  key={review.name}
+                  className="reveal flex min-h-full flex-col border border-border bg-card p-7 md:p-8"
+                >
+                  <div className="flex items-start justify-between gap-5">
+                    <Quote className="h-7 w-7 text-primary" aria-hidden="true" />
+                    <div
+                      className="flex gap-1"
+                      role="img"
+                      aria-label={`${review.rating} out of 5 stars`}
+                    >
+                      {Array.from({ length: 5 }, (_, index) => (
+                        <Star
+                          key={index}
+                          className={`h-4 w-4 ${
+                            index < review.rating
+                              ? "fill-gold text-gold"
+                              : "fill-transparent text-border"
+                          }`}
+                          aria-hidden="true"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <blockquote className="mt-7 flex-1">
+                    <p className="text-lg leading-8 text-foreground">{review.review}</p>
+                  </blockquote>
+                  <footer className="mt-8 border-t border-border pt-5">
+                    <p className="font-semibold text-foreground">{review.name}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Google review excerpt · {review.date}
+                    </p>
+                  </footer>
+                </article>
+              ))}
+            </div>
+
+            <a
+              href={GOOGLE_REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex h-12 items-center justify-center rounded-md border border-border bg-card px-6 text-xs font-bold uppercase tracking-[0.18em] text-foreground transition-colors duration-200 hover:border-accent hover:text-primary"
+            >
+              Read all reviews on Google
+            </a>
           </div>
         </section>
 
