@@ -32,8 +32,22 @@ export default defineConfig(({ mode }) => {
       {
         name: "limon-production-metadata",
         transformIndexHtml(html) {
+          const socialPreviewUrl = `${siteUrl}social-preview.jpg`;
+          const socialPreviewAlt =
+            "Limon Ranch exterior and landscaped grounds with the words A peaceful stay in Maralal";
           const metadata = siteUrl
-            ? `<link rel="canonical" href="${siteUrl}" /><meta property="og:url" content="${siteUrl}" /><meta property="og:image" content="${siteUrl}limon-ranch-og.jpg" /><meta name="twitter:image" content="${siteUrl}limon-ranch-og.jpg" />`
+            ? [
+                `<link rel="canonical" href="${siteUrl}" />`,
+                `<meta property="og:url" content="${siteUrl}" />`,
+                `<meta property="og:image" content="${socialPreviewUrl}" />`,
+                `<meta property="og:image:secure_url" content="${socialPreviewUrl}" />`,
+                '<meta property="og:image:type" content="image/jpeg" />',
+                '<meta property="og:image:width" content="1200" />',
+                '<meta property="og:image:height" content="630" />',
+                `<meta property="og:image:alt" content="${socialPreviewAlt}" />`,
+                `<meta name="twitter:image" content="${socialPreviewUrl}" />`,
+                `<meta name="twitter:image:alt" content="${socialPreviewAlt}" />`,
+              ].join("")
             : '<meta name="robots" content="noindex, nofollow" />';
           return html.replace("<!-- production-metadata -->", metadata);
         },
