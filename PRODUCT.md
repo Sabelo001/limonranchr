@@ -60,3 +60,11 @@ The website helps prospective guests understand the property, explore suitable s
 3. Use plain language and distinguish confirmed information from possibilities.
 4. Keep WhatsApp as the clearest path to a human response.
 5. Use refinement and restraint rather than generic luxury-hotel styling.
+
+## Phase Two — staff booking operations
+
+The owner has approved a future Supabase-based staff system for managing a booking calendar and preparing quotations and invoices. This internal system is a separate Phase Two project and is not part of the current production launch.
+
+- Keep the public website’s current WhatsApp enquiry journey unchanged until Phase Two is separately designed, approved and implemented.
+- Do not claim live availability, expose staff operations or add public online payments as part of this future work.
+- Define staff access, booking data, quotation and invoice requirements, security, privacy and operational workflows before implementation begins.
