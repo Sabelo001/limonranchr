@@ -533,23 +533,23 @@ function Home() {
                 id="kenyatta-house"
                 className="scroll-mt-28 overflow-hidden border border-border bg-card sm:col-span-2 lg:col-span-3"
               >
-                <div className="grid gap-2 bg-ranch-ink sm:grid-cols-[1.6fr_1fr]">
+                <div className="grid min-w-0 gap-2 bg-ranch-ink md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
                   <img
                     src={kenyattaHouseExterior}
                     alt="Exterior of Kenyatta House in Maralal"
                     loading="lazy"
                     width={1280}
                     height={960}
-                    className="h-64 w-full object-cover sm:h-[26rem]"
+                    className="aspect-[4/3] h-auto min-w-0 w-full object-cover object-center md:aspect-auto md:h-full"
                   />
-                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-1">
+                  <div className="grid min-w-0 grid-cols-2 gap-2 md:grid-cols-1">
                     <img
                       src={kenyattaHouseSign}
                       alt="Kenyatta House Maralal entrance sign"
                       loading="lazy"
                       width={1280}
                       height={960}
-                      className="h-32 w-full object-cover sm:h-[12.75rem]"
+                      className="aspect-[4/3] h-auto min-w-0 w-full object-cover object-center"
                     />
                     <img
                       src={kenyattaHouseBedroom}
@@ -557,7 +557,7 @@ function Home() {
                       loading="lazy"
                       width={1280}
                       height={960}
-                      className="h-32 w-full object-cover sm:h-[12.75rem]"
+                      className="aspect-[4/3] h-auto min-w-0 w-full object-cover object-center"
                     />
                   </div>
                 </div>
