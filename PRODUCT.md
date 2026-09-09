@@ -35,7 +35,8 @@ The website helps prospective guests understand the property, explore suitable s
 - International call number: +254783522345.
 - WhatsApp number: 254783522345.
 - Primary business contact and booking channel: WhatsApp.
-- Production origin: https://limon-ranch.pages.dev/.
+- Primary production origin: https://limonranch.co.ke/.
+- Cloudflare Pages deployment origin: https://limon-ranch.pages.dev/ (hosting only; never use as the public canonical URL).
 
 ## Product constraints
 
