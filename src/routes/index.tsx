@@ -20,7 +20,7 @@ import {
 import atmosphericHero from "@/assets/hero.jpg";
 import logo from "@/assets/optimized/logo-clean.webp";
 import footerLogo from "@/assets/optimized/logo-footer.webp";
-import ewasoLogo from "@/assets/optimized/ewaso-digital-logo.webp";
+import ewasoLogo from "@/assets/originals/ewaso-digital/Logo3-removebg-preview.png";
 import hero from "@/assets/property-exterior.jpg";
 import { BookingEnquiry } from "@/components/booking-enquiry";
 import { CALL_PHONE, DISPLAY_PHONE, bookingDraft as wa } from "@/lib/booking";
@@ -1128,7 +1128,7 @@ function Social({
 function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-ranch-ink px-5 pb-28 pt-14 text-white md:px-10 md:pb-16">
+    <footer className="bg-ranch-ink px-5 pb-40 pt-14 text-white md:px-10 xl:pb-16">
       <div className="mx-auto grid max-w-7xl gap-10 border-b border-white/15 pb-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-[1.15fr_0.85fr_1fr_0.85fr_1.1fr]">
         <div>
           <img
@@ -1164,14 +1164,31 @@ function Footer() {
             ["Northern Kenya Experiences", "#experiences"],
           ]}
         />
-        <FooterColumn
-          title="Socials"
-          links={[
-            ["WhatsApp", wa("Hello Limon Ranch, I'd like to enquire.")],
-            ["Facebook", FB_URL],
-            ["Instagram", IG_URL],
-          ]}
-        />
+        <div>
+          <h3 className="font-display text-xl font-semibold text-gold-soft">Socials</h3>
+          <div className="mt-5 flex flex-wrap gap-3" aria-label="Limon Ranch social media">
+            {[
+              {
+                label: "WhatsApp",
+                href: wa("Hello Limon Ranch, I'd like to enquire."),
+                icon: <WhatsAppIcon className="h-5 w-5" />,
+              },
+              { label: "Facebook", href: FB_URL, icon: <Facebook className="h-5 w-5" /> },
+              { label: "Instagram", href: IG_URL, icon: <Instagram className="h-5 w-5" /> },
+            ].map(({ label, href, icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-gold-soft/55 text-gold-soft transition-[background-color,border-color,color,transform] duration-200 hover:-translate-y-0.5 hover:border-gold-soft hover:bg-gold-soft hover:text-ranch-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-soft focus-visible:ring-offset-2 focus-visible:ring-offset-ranch-ink"
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
+        </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
             Website by
@@ -1179,19 +1196,21 @@ function Footer() {
           <a
             href={EWASO_URL}
             target="_blank"
-            rel="noreferrer"
-            className="mt-4 inline-flex items-center gap-3 transition-opacity duration-200 hover:opacity-85"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex max-w-full items-center gap-3 rounded-sm transition-opacity duration-200 hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-soft focus-visible:ring-offset-4 focus-visible:ring-offset-ranch-ink"
             aria-label="Website by Ewaso Digital"
           >
             <img
               src={ewasoLogo}
-              alt="Ewaso Digital"
-              className="h-12 w-12 rounded-xl object-contain"
+              alt=""
+              className="h-auto w-24 max-w-full shrink-0 object-contain"
               loading="lazy"
-              width={48}
-              height={48}
+              width={551}
+              height={453}
             />
-            <span className="font-display text-xl font-semibold text-gold-soft">Ewaso Digital</span>
+            <span className="font-display text-lg font-semibold leading-tight text-gold-soft sm:text-xl">
+              Ewaso Digital
+            </span>
           </a>
           <p className="mt-4 max-w-[14rem] text-xs leading-6 text-white/70">
             Digital presence and marketing support.
