@@ -534,31 +534,37 @@ function Home() {
                 className="scroll-mt-28 overflow-hidden border border-border bg-card sm:col-span-2 lg:col-span-3"
               >
                 <div className="grid min-w-0 gap-2 bg-ranch-ink md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-                  <img
-                    src={kenyattaHouseExterior}
-                    alt="Exterior of Kenyatta House in Maralal"
-                    loading="lazy"
-                    width={1280}
-                    height={960}
-                    className="aspect-[4/3] h-auto min-w-0 w-full object-cover object-center md:aspect-auto md:h-full"
-                  />
+                  <div className="group min-w-0 overflow-hidden">
+                    <img
+                      src={kenyattaHouseExterior}
+                      alt="Exterior of Kenyatta House in Maralal"
+                      loading="lazy"
+                      width={1280}
+                      height={960}
+                      className="media-zoom aspect-[4/3] h-auto min-w-0 w-full object-cover object-center transition-transform duration-300 md:aspect-auto md:h-full"
+                    />
+                  </div>
                   <div className="grid min-w-0 grid-cols-2 gap-2 md:grid-cols-1">
-                    <img
-                      src={kenyattaHouseSign}
-                      alt="Kenyatta House Maralal entrance sign"
-                      loading="lazy"
-                      width={1280}
-                      height={960}
-                      className="aspect-[4/3] h-auto min-w-0 w-full object-cover object-center"
-                    />
-                    <img
-                      src={kenyattaHouseBedroom}
-                      alt="Preserved bedroom inside Kenyatta House Maralal"
-                      loading="lazy"
-                      width={1280}
-                      height={960}
-                      className="aspect-[4/3] h-auto min-w-0 w-full object-cover object-center"
-                    />
+                    <div className="group min-w-0 overflow-hidden">
+                      <img
+                        src={kenyattaHouseSign}
+                        alt="Kenyatta House Maralal entrance sign"
+                        loading="lazy"
+                        width={1280}
+                        height={960}
+                        className="media-zoom aspect-[4/3] h-auto min-w-0 w-full object-cover object-center transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="group min-w-0 overflow-hidden">
+                      <img
+                        src={kenyattaHouseBedroom}
+                        alt="Preserved bedroom inside Kenyatta House Maralal"
+                        loading="lazy"
+                        width={1280}
+                        height={960}
+                        className="media-zoom aspect-[4/3] h-auto min-w-0 w-full object-cover object-center transition-transform duration-300"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="grid gap-6 p-6 md:grid-cols-[0.72fr_1.28fr] md:p-8">
@@ -599,13 +605,16 @@ function Home() {
                 </div>
               </article>
               {northernExperiences.map((item) => (
-                <article key={item.title} className="overflow-hidden border border-border bg-card">
+                <article
+                  key={item.title}
+                  className="group overflow-hidden border border-border bg-card"
+                >
                   <div className="relative h-56 overflow-hidden">
                     <img
                       src={item.img}
                       alt={`${item.title} regional Northern Kenya experience`}
                       loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className="media-zoom absolute inset-0 h-full w-full object-cover transition-transform duration-300"
                     />
                   </div>
                   <div className="p-6">
