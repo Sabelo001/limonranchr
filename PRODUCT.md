@@ -31,10 +31,10 @@ The website helps prospective guests understand the property, explore suitable s
 ## Confirmed commercial details
 
 - Accommodation rates are provided privately on enquiry and must not be displayed publicly.
-- Display phone number: 0783 522 345.
-- International call number: +254783522345.
-- WhatsApp number: 254783522345.
-- Primary business contact and booking channel: WhatsApp.
+- Temporary booking and enquiry contact managed by Ewaso Digital: 0711 940 174.
+- Temporary international call number: +254711940174.
+- Temporary WhatsApp number: 254711940174.
+- WhatsApp remains the primary booking and enquiry channel; these temporary contact details are not Limon Ranch's permanent number.
 - Primary production origin: https://limonranch.co.ke/.
 - Cloudflare Pages deployment origin: https://limon-ranch.pages.dev/ (hosting only; never use as the public canonical URL).
 
